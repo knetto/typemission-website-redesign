@@ -134,17 +134,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
   }
 
-  /* Keep buttons side-by-side without wrapping under each other */
+  /* Keep buttons side-by-side without wrapping, set equal width */
   @media (min-width: 768px) {
     .elementor-316 .elementor-element.elementor-element-ecb8136 {
       flex-wrap: nowrap !important;
       display: flex !important;
       flex-direction: row !important;
       gap: 16px !important;
+      width: 100% !important;
     }
     .elementor-316 .elementor-element.elementor-element-c694225,
     .elementor-316 .elementor-element.elementor-element-07ce5d1 {
-      width: auto !important;
+      flex: 1 1 0% !important;
+      width: 0 !important;
+      max-width: none !important;
+    }
+    .elementor-316 .elementor-element.elementor-element-c694225 .elementor-widget-container,
+    .elementor-316 .elementor-element.elementor-element-c694225 .elementor-button-wrapper,
+    .elementor-316 .elementor-element.elementor-element-c694225 .elementor-button,
+    .elementor-316 .elementor-element.elementor-element-07ce5d1 .elementor-widget-container,
+    .elementor-316 .elementor-element.elementor-element-07ce5d1 .elementor-button-wrapper,
+    .elementor-316 .elementor-element.elementor-element-07ce5d1 .elementor-button {
+      width: 100% !important;
+      text-align: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      display: flex !important;
+      align-items: center !important;
     }
   }
 
@@ -260,10 +276,66 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     width: auto;
   }
 
-  /* Prevent text column from overlapping slanted hero image */
+  /* Prevent text column from overlapping slanted hero image and set consistent spacing */
   @media (min-width: 768px) {
     .elementor-316 .elementor-element.elementor-element-f351f83 {
       max-width: 480px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+    }
+
+    /* Reset default Elementor widget spacing */
+    .elementor-316 .elementor-element.elementor-element-f351f83 > .elementor-element {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Heading margin */
+    .elementor-316 .elementor-element.elementor-element-cd07f65 {
+      margin-bottom: 24px !important;
+    }
+
+    /* Description & Checklist wrapper */
+    .elementor-316 .elementor-element.elementor-element-3e3ed40 {
+      margin-bottom: 32px !important;
+    }
+
+    /* Description paragraph margin */
+    .hero-description {
+      margin: 0 0 24px 0 !important;
+      line-height: 1.5 !important;
+    }
+
+    /* Checklist reset */
+    .hero-checklist-new {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    /* Buttons wrapper */
+    .elementor-316 .elementor-element.elementor-element-62df2b2 {
+      margin-bottom: 36px !important;
+    }
+    .elementor-316 .elementor-element.elementor-element-ecb8136 {
+      padding-bottom: 0 !important;
+    }
+
+    /* Badges wrapper - aligned to the same grid */
+    .elementor-316 .elementor-element.elementor-element-6c51155 {
+      margin-top: 0 !important;
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 16px !important;
+      width: 100% !important;
+    }
+    .elementor-316 .elementor-element.elementor-element-43c4cdd,
+    .elementor-316 .elementor-element.elementor-element-0bfd35f {
+      flex: 1 1 0% !important;
+      width: 0 !important;
+      box-sizing: border-box !important;
+      margin: 0 !important;
     }
   }
 
