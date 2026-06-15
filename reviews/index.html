@@ -79,9 +79,331 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
       display: none !important; /* Hide header buttons on mobile view just like the original theme does with standard buttons */
     }
   }
+
+  
+  /* Side-by-side header promo and login on mobile */
+  @media (max-width: 767px) {
+    /* Hide the extra mobile bar container completely */
+    .elementor-element-7a5649f {
+      display: none !important;
+    }
+    
+    /* Unhide the desktop promo text container and heading on mobile */
+    .elementor-element-680f272.elementor-hidden-mobile {
+      display: flex !important;
+      width: auto !important;
+      flex-grow: 1 !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+    .elementor-element-8eb8dd5.elementor-hidden-mobile {
+      display: block !important;
+    }
+    
+    /* Reset margins/paddings and force flex centering on all wrappers to ensure perfect vertical alignment */
+    .elementor-element-680f272,
+    .elementor-element-b81a3ab,
+    .elementor-element-8eb8dd5,
+    .elementor-element-58771ad,
+    .elementor-element-8eb8dd5 .elementor-widget-container,
+    .elementor-element-58771ad .elementor-widget-container,
+    .elementor-element-58771ad .elementor-button-wrapper {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: auto !important;
+      min-height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .elementor-element-b81a3ab {
+      justify-content: flex-end !important; /* Keep button aligned to the right */
+    }
+    
+    /* Match font styles exactly and align them vertically */
+    .elementor-element-8eb8dd5 .elementor-heading-title,
+    .elementor-element-58771ad .elementor-button {
+      font-size: 14px !important;
+      font-weight: 600 !important;
+      font-family: "Roboto", Sans-serif !important;
+      line-height: 1.2 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    
+    /* Reset extra paddings/borders on button and center text */
+    .elementor-element-58771ad .elementor-button {
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      background: transparent !important;
+      color: #ffffff !important;
+      fill: #ffffff !important;
+    }
+    
+    .elementor-element-58771ad .elementor-button-content-wrapper {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+    
+    .elementor-element-58771ad .elementor-button-icon {
+      display: inline-flex !important;
+      align-items: center !important;
+      margin-right: 0 !important;
+    }
+    
+    .elementor-element-58771ad .elementor-button-icon svg {
+      width: 16px !important;
+      height: 16px !important;
+      fill: #ffffff !important;
+      vertical-align: middle !important;
+    }
+    
+    /* Lay out promo text and login button side-by-side in the light blue bar */
+    .elementor-element-b54a980 {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      min-height: auto !important;
+    }
+    
+    .elementor-element-b54a980 > .e-con-inner {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      min-height: auto !important;
+    }
+    
+    /* Default layout for narrow mobile screens (<440px): align text to the left, button to the right */
+    .elementor-element-b54a980 > .e-con-inner {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      gap: 8px !important;
+    }
+    .elementor-element-680f272.elementor-hidden-mobile {
+      display: flex !important;
+      width: auto !important;
+      flex-grow: 1 !important;
+      justify-content: flex-start !important;
+      align-items: center !important;
+    }
+    .elementor-element-8eb8dd5 .elementor-heading-title {
+      text-align: left !important;
+    }
+    .elementor-element-b81a3ab {
+      width: auto !important;
+      flex-shrink: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+    }
+
+    /* For screens >= 440px: Center the text relative to the screen and position login button on the right */
+    @media (min-width: 440px) {
+      .elementor-element-b54a980 > .e-con-inner {
+        position: relative !important;
+        justify-content: center !important;
+      }
+      .elementor-element-680f272.elementor-hidden-mobile {
+        justify-content: center !important;
+      }
+      .elementor-element-8eb8dd5 .elementor-heading-title {
+        text-align: center !important;
+      }
+      .elementor-element-b81a3ab {
+        position: absolute !important;
+        right: 12px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+      }
+    }
+  }
+
+  
+  /* Align header logo with the left edge of the hero section on desktop */
+  @media (min-width: 1025px) {
+    .elementor-element-22a54df {
+      padding-left: 0 !important;
+    }
+    .elementor-element-22a54df > .e-con-inner {
+      padding-left: 0 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    .elementor-element-e274c4b {
+      justify-content: flex-start !important;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+    .elementor-element-f8febde {
+      text-align: left !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    .elementor-element-f8febde > .elementor-widget-container {
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+    .elementor-element-f8febde img {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+
+  /* Prevent navigation menu and buttons from wrapping on smaller desktop resolutions */
+  @media (min-width: 1025px) and (max-width: 1300px) {
+    .elementor-element-acc67c7 > .e-con-inner {
+      gap: 12px !important;
+    }
+    .elementor-element-6ce5718 .elementor-nav-menu a.elementor-item {
+      padding: 10px 10px !important;
+      font-size: 14px !important;
+    }
+    .header-trial-btn, .header-order-btn {
+      padding: 8px 14px !important;
+      font-size: 13px !important;
+    }
+    .header-buttons-container {
+      gap: 8px !important;
+    }
+  }
+  @media (min-width: 1025px) and (max-width: 1150px) {
+    .elementor-element-acc67c7 > .e-con-inner {
+      gap: 8px !important;
+    }
+    .elementor-element-6ce5718 .elementor-nav-menu a.elementor-item {
+      padding: 10px 6px !important;
+      font-size: 13px !important;
+    }
+    .header-trial-btn, .header-order-btn {
+      padding: 6px 10px !important;
+      font-size: 12px !important;
+      border-width: 2px !important;
+    }
+    .header-buttons-container {
+      gap: 6px !important;
+    }
+  }
+
+  /* Premium Burger Menu Toggle and Sidebar Animations */
+  .elementor-menu-toggle {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    color: var(--e-global-color-primary) !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .elementor-menu-toggle:hover,
+  .elementor-menu-toggle:focus {
+    background-color: transparent !important;
+    color: var(--e-global-color-accent) !important;
+    transform: scale(1.15) !important;
+  }
+
+  .elementor-menu-toggle svg {
+    fill: var(--e-global-color-primary) !important;
+    width: 28px !important;
+    height: 28px !important;
+    transition: fill 0.3s ease !important;
+  }
+
+  .elementor-menu-toggle:hover svg,
+  .elementor-menu-toggle:focus svg {
+    fill: var(--e-global-color-accent) !important;
+  }
+
+  /* Style for the mobile burger menu icon button (removing the grey circular background) */
+  .elementor-element.elementor-element-02425f5 .elementor-icon {
+    background-color: transparent !important;
+    color: var(--e-global-color-primary) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+    display: inline-flex !important;
+    box-shadow: none !important;
+  }
+
+  .elementor-element.elementor-element-02425f5 .elementor-icon svg {
+    fill: var(--e-global-color-primary) !important;
+    width: 28px !important;
+    height: 28px !important;
+    transition: fill 0.3s ease, transform 0.3s ease !important;
+  }
+
+  .elementor-element.elementor-element-02425f5 .elementor-icon:hover svg,
+  .elementor-element.elementor-element-02425f5 .elementor-icon:focus svg {
+    fill: var(--e-global-color-accent) !important;
+    transform: scale(1.15) !important;
+  }
+
+  /* Smooth fade/slide transitions for the Off-Canvas Menu */
+  .elementor-widget-off-canvas .e-off-canvas {
+    transition: opacity 0.4s ease, visibility 0.4s ease !important;
+    pointer-events: none;
+  }
+
+  .elementor-widget-off-canvas .e-off-canvas[aria-hidden=false] {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+  }
+
+  .elementor-widget-off-canvas .e-off-canvas[aria-hidden=true] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Slide sidebar from left to right on open */
+  .elementor-widget-off-canvas .e-off-canvas__content {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transform: translateX(-100%) !important;
+  }
+
+  .elementor-widget-off-canvas .e-off-canvas[aria-hidden=false] .e-off-canvas__content {
+    transform: translateX(0) !important;
+  }
+
+  /* Smooth fade-in overlay backdrop */
+  .elementor-widget-off-canvas .e-off-canvas__overlay {
+    transition: opacity 0.4s ease !important;
+    opacity: 0 !important;
+  }
+
+  .elementor-widget-off-canvas .e-off-canvas[aria-hidden=false] .e-off-canvas__overlay {
+    opacity: var(--e-off-canvas-overlay-opacity, 0.8) !important;
+  }
+</style>
+<style>
+  /* Reduce height of header top blue bar on desktop/tablet */
+  @media (min-width: 768px) {
+    .elementor-element-b54a980 {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      min-height: auto !important;
+    }
+    .elementor-element-b54a980 > .e-con-inner {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      min-height: auto !important;
+    }
+    .elementor-element-8eb8dd5,
+    .elementor-element-58771ad {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
 </style>
 </head><body class="wp-singular page-template page-template-elementor_header_footer page page-id-1181 wp-custom-logo wp-embed-responsive wp-theme-hello-elementor hello-elementor-default elementor-default elementor-template-full-width elementor-kit-8 elementor-page elementor-page-1181"> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Z8PHCD4"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>  <script async="" type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=QWLx7p"></script> <a class="skip-link screen-reader-text" href="#content">Spring naar de inhoud</a><header data-elementor-type="header" data-elementor-id="459" class="elementor elementor-459 elementor-location-header" data-elementor-post-type="elementor_library"><div class="elementor-element elementor-element-7a5649f elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="7a5649f" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-7bc349a elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="7bc349a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Bespaar nu tijdelijk €20,- op de typecursus! 🔥</div></div></div></div></div><div class="elementor-element elementor-element-b54a980 e-flex e-con-boxed e-con e-parent" data-id="b54a980" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-4f39df1 e-con-full elementor-hidden-mobile e-flex e-con e-child" data-id="4f39df1" data-element_type="container" data-e-type="container"></div><div class="elementor-element elementor-element-680f272 e-con-full elementor-hidden-mobile e-flex e-con e-child" data-id="680f272" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-element elementor-element-8eb8dd5 elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="8eb8dd5" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Bespaar nu tijdelijk €20 op jouw typecursus! 🔥</div></div></div></div><div class="elementor-element elementor-element-b81a3ab e-con-full e-flex e-con e-child" data-id="b81a3ab" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-58771ad elementor-align-right elementor-widget elementor-widget-button" data-id="58771ad" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-xs" href="/inloggen/index.html"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-icon"> <svg aria-hidden="true" class="e-font-icon-svg e-far-user-circle" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg> </span> <span class="elementor-button-text">Inloggen</span> </span> </a></div></div></div></div></div></div><div class="elementor-element elementor-element-22a54df elementor-hidden-tablet elementor-hidden-mobile e-flex e-con-boxed e-con e-parent" data-id="22a54df" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-e274c4b e-con-full e-flex e-con e-child" data-id="e274c4b" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-f8febde elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="f8febde" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default"><div class="elementor-widget-container"> <a href="/index.html"> <img fetchpriority="high" width="800" height="334" src="/wp-content/uploads/2023/04/TM-logo.webp" class="attachment-large size-large wp-image-2404" alt="TypeMission Logo transparant" srcset="/wp-content/uploads/2023/04/TM-logo.webp 864w, /wp-content/uploads/2023/04/TM-logo-300x125.webp 300w, /wp-content/uploads/2023/04/TM-logo-768x321.webp 768w" sizes="(max-width: 800px) 100vw, 800px"> </a></div></div></div><div class="elementor-element elementor-element-acc67c7 e-flex e-con-boxed e-con e-child" data-id="acc67c7" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-6ce5718 elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="6ce5718" data-element_type="widget" data-e-type="widget" id="header" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none"><ul id="menu-1-6ce5718" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="/hoe-werkt-het/index.html" class="elementor-item">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4740"><a href="/typecursus-voor-scholen/index.html" class="elementor-item">Typemission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5067"><a href="/typecursus-prijzen/index.html" class="elementor-item">Prijzen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064"><a href="/typecursus-bestellen/index.html" class="elementor-item">Bestellen</a></li></ul></nav><div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false"> <svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg></div><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-6ce5718" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="/hoe-werkt-het/index.html" class="elementor-item" tabindex="-1">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4740"><a href="/typecursus-voor-scholen/index.html" class="elementor-item" tabindex="-1">Typemission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5067"><a href="/typecursus-prijzen/index.html" class="elementor-item" tabindex="-1">Prijzen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064"><a href="/typecursus-bestellen/index.html" class="elementor-item" tabindex="-1">Bestellen</a></li></ul></nav></div></div>
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>  <script async="" type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=QWLx7p"></script> <a class="skip-link screen-reader-text" href="#content">Spring naar de inhoud</a><header data-elementor-type="header" data-elementor-id="459" class="elementor elementor-459 elementor-location-header" data-elementor-post-type="elementor_library"><div class="elementor-element elementor-element-7a5649f elementor-hidden-desktop elementor-hidden-tablet e-flex e-con-boxed e-con e-parent" data-id="7a5649f" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-7bc349a elementor-hidden-desktop elementor-hidden-tablet elementor-widget elementor-widget-heading" data-id="7bc349a" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Bespaar €20,- op de typecursus! 🔥</div></div></div></div></div><div class="elementor-element elementor-element-b54a980 e-flex e-con-boxed e-con e-parent" data-id="b54a980" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-4f39df1 e-con-full elementor-hidden-mobile e-flex e-con e-child" data-id="4f39df1" data-element_type="container" data-e-type="container"></div><div class="elementor-element elementor-element-680f272 e-con-full elementor-hidden-mobile e-flex e-con e-child" data-id="680f272" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-element elementor-element-8eb8dd5 elementor-hidden-mobile elementor-widget elementor-widget-heading" data-id="8eb8dd5" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><div class="elementor-heading-title elementor-size-default">Bespaar €20 op jouw typecursus! 🔥</div></div></div></div><div class="elementor-element elementor-element-b81a3ab e-con-full e-flex e-con e-child" data-id="b81a3ab" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-58771ad elementor-align-right elementor-widget elementor-widget-button" data-id="58771ad" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-xs" href="/inloggen/index.html"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-icon"> <svg aria-hidden="true" class="e-font-icon-svg e-far-user-circle" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg> </span> <span class="elementor-button-text">Inloggen</span> </span> </a></div></div></div></div></div></div><div class="elementor-element elementor-element-22a54df elementor-hidden-tablet elementor-hidden-mobile e-flex e-con-boxed e-con e-parent" data-id="22a54df" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-e274c4b e-con-full e-flex e-con e-child" data-id="e274c4b" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-f8febde elementor-widget elementor-widget-theme-site-logo elementor-widget-image" data-id="f8febde" data-element_type="widget" data-e-type="widget" data-widget_type="theme-site-logo.default"><div class="elementor-widget-container"> <a href="/index.html"> <img fetchpriority="high" width="800" height="334" src="/wp-content/uploads/2023/04/TM-logo.webp" class="attachment-large size-large wp-image-2404" alt="TypeMission Logo transparant" srcset="/wp-content/uploads/2023/04/TM-logo.webp 864w, /wp-content/uploads/2023/04/TM-logo-300x125.webp 300w, /wp-content/uploads/2023/04/TM-logo-768x321.webp 768w" sizes="(max-width: 800px) 100vw, 800px"> </a></div></div></div><div class="elementor-element elementor-element-acc67c7 e-flex e-con-boxed e-con e-child" data-id="acc67c7" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-6ce5718 elementor-nav-menu__align-end elementor-nav-menu--stretch elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="6ce5718" data-element_type="widget" data-e-type="widget" id="header" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-text e--animation-none"><ul id="menu-1-6ce5718" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="/hoe-werkt-het/index.html" class="elementor-item">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4740"><a href="/typecursus-voor-scholen/index.html" class="elementor-item">Typemission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5067"><a href="/typecursus-prijzen/index.html" class="elementor-item">Prijzen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064"><a href="/typecursus-bestellen/index.html" class="elementor-item">Bestellen</a></li></ul></nav><div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false"> <svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg></div><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-6ce5718" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-57"><a href="/hoe-werkt-het/index.html" class="elementor-item" tabindex="-1">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4740"><a href="/typecursus-voor-scholen/index.html" class="elementor-item" tabindex="-1">Typemission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5067"><a href="/typecursus-prijzen/index.html" class="elementor-item" tabindex="-1">Prijzen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5064"><a href="/typecursus-bestellen/index.html" class="elementor-item" tabindex="-1">Bestellen</a></li></ul></nav></div></div>
 <div class="header-buttons-container">
   <a class="header-trial-btn" href="/proefles/index.html">Speel de proefles</a>
   <a class="header-order-btn" href="/typecursus-bestellen/index.html">Bestellen</a>
