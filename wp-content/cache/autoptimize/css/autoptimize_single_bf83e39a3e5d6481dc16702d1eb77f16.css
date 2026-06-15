@@ -146,3 +146,9 @@ header.elementor-location-header.header-scrolled-down .elementor-element-7a5649f
 }
 
 
+
+/* Disable individual sticky behavior on mobile burger menu icon since the parent header is already sticky */
+.elementor-element.elementor-element-02425f5 {
+  position: static !important;
+  top: auto !important;
+}
