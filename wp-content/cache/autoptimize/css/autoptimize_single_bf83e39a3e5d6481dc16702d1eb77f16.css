@@ -79,10 +79,12 @@ header.elementor-location-header .elementor-widget-theme-site-logo img {
   animation: marquee 80s linear infinite !important; /* Slowed down to 80s for extremely gentle flow */
 }
 
-/* Pause animation on hover */
+/* Pause animation on hover is handled smoothly via JS */
+/*
 .logo-marquee-track:hover {
   animation-play-state: paused !important;
 }
+*/
 
 .logo-marquee-item {
   padding: 0 45px !important;
