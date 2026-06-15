@@ -150,29 +150,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   }
 
-  /* Base hidden class for mobile image helper */
+  /* Base hidden class for mobile image helper and visual container */
   .hero-mobile-image-clip {
     display: none;
   }
 
+  /* Desktop Multi-layer Hero & Parallax styling */
+  .elementor-316 .elementor-element.elementor-element-fcba14e {
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: #38032e !important;
+    background-image: none !important;
+  }
+  .elementor-316 .elementor-element.elementor-element-fcba14e:not(.elementor-motion-effects-element-type-background),
+  .elementor-316 .elementor-element.elementor-element-fcba14e>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-image: none !important;
+    background-color: #38032e !important;
+  }
+
+  .elementor-316 .elementor-element.elementor-element-143ce33 {
+    position: relative !important;
+    z-index: 5 !important; /* Kept text/buttons on very top */
+    pointer-events: auto !important;
+  }
+
+  .hero-visual-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%; /* Sized to 100% to let background image stretch all the way left */
+    height: 100%;
+    overflow: hidden;
+    clip-path: polygon(44% 0, 100% 0, 100% 100%, 56% 100%); /* Slants up-left: from 44% top-left to 56% bottom-right */
+    z-index: 1; /* Background scene */
+    pointer-events: none;
+  }
+
+  .hero-layer {
+    position: absolute;
+    will-change: transform;
+  }
+
+  .hero-layer-bg {
+    top: -12%;
+    left: 15%;
+    width: 108%;
+    height: 112%;
+    background-image: url("afbeelingen/background.webp");
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    filter: blur(2px);
+  }
+
+  .hero-layer-heli {
+    top: -8%;
+    left: 41%;
+    width: 23%;
+    z-index: 2;
+  }
+  .hero-layer-heli img {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-layer-spies {
+    bottom: -58%;
+    left: 50%;
+    height: 154%;
+    width: auto;
+    z-index: 3;
+  }
+  .hero-layer-spies img {
+    height: 100%;
+    width: auto;
+  }
+
+  .hero-layer-girl {
+    bottom: -2%;
+    right: -2%;
+    height: 91%;
+    width: auto;
+    z-index: 4;
+  }
+  .hero-layer-girl img {
+    height: 100%;
+    width: auto;
+  }
+
   /* Tablet / Desktop overlap fixes */
   @media (max-width: 1024px) {
-    .elementor-316 .elementor-element.elementor-element-fcba14e:not(.elementor-motion-effects-element-type-background),
-    .elementor-316 .elementor-element.elementor-element-fcba14e>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-      background-image: linear-gradient(90deg, rgba(56, 3, 46, 0.95) 0%, rgba(56, 3, 46, 0.7) 60%, rgba(56, 3, 46, 0.3) 100%), 
-                        url("https://www.typemission.be/wp-content/uploads/2025/03/Typemission_HEROWEBSITE_version3-scaled.webp") !important;
-      background-position: 85% center !important;
+    .hero-visual-container {
+      width: 100%;
+      clip-path: polygon(46% 0, 100% 0, 100% 100%, 58% 100%);
+    }
+    .hero-layer-spies {
+      left: 38%;
+      height: 135%;
+      bottom: -35%;
+    }
+    .hero-layer-girl {
+      right: -5%;
+      height: 75%;
+      bottom: -5%;
+    }
+    .hero-layer-heli {
+      left: 40%;
+      width: 20%;
+      top: 28%;
     }
   }
 
   /* Mobile responsive overrides */
   @media (max-width: 767px) {
-    .elementor-316 .elementor-element.elementor-element-fcba14e:not(.elementor-motion-effects-element-type-background),
-    .elementor-316 .elementor-element.elementor-element-fcba14e>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-      background-image: none !important;
-      background-color: #38032e !important;
+    .hero-visual-container {
+      display: none !important;
     }
     
+    .hero-layer-heli,
+    .hero-layer-spies,
+    .hero-layer-girl {
+      display: none !important;
+    }
+
     .elementor-316 .elementor-element.elementor-element-fcba14e {
       min-height: auto !important;
       display: flex !important;
@@ -185,9 +285,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .hero-mobile-image-clip {
       display: block;
       width: 100%;
-      height: 250px;
-      background-image: url("https://www.typemission.be/wp-content/uploads/2025/03/Typemission_HEROWEBSITE_version3-scaled.webp");
-      background-position: 80% center;
+      height: 320px;
+      background-image: url("afbeelingen/meisje_schuin.webp");
+      background-position: center 30%;
       background-size: cover;
       clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
       z-index: 2;
@@ -275,6 +375,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </style>
 
 <div class="elementor-element elementor-element-fcba14e e-con-full e-flex e-con e-child hero-container-redesign" data-id="fcba14e" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+  <!-- Parallax visual layers for desktop/tablet -->
+  <div class="hero-visual-container">
+    <div class="hero-layer hero-layer-bg" data-depth="0.05"></div>
+  </div>
+  
+  <!-- Helicopter placed outside the clipped container so it can fly over the slant line -->
+  <div class="hero-layer hero-layer-heli" data-depth="0.25">
+    <img src="afbeelingen/helicopter.webp" alt="Helikopter">
+  </div>
+  
+  <!-- Spies placed outside so they can overlap the purple background and hover in front of the helicopter -->
+  <div class="hero-layer hero-layer-spies" data-depth="0.10">
+    <img src="afbeelingen/spies.webp" alt="Spionnen">
+  </div>
+  
+  <!-- Typing Girl placed outside, sitting in the bottom right corner -->
+  <div class="hero-layer hero-layer-girl" data-depth="0.18">
+    <img src="afbeelingen/meisje_schuin.webp" alt="Typend meisje">
+  </div>
+  
   <div class="hero-mobile-image-clip"></div>
   <div class="elementor-element elementor-element-143ce33 e-flex e-con-boxed e-con e-child" data-id="143ce33" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
     <div class="e-con-inner">
@@ -459,4 +579,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const hero = document.querySelector('.hero-container-redesign');
+    const layers = document.querySelectorAll('.hero-layer');
+    
+    if (hero) {
+      // Mouse move parallax for desktop/tablet (>= 768px)
+      let isHovered = false;
+      
+      const onMouseEnter = () => {
+        isHovered = true;
+        layers.forEach(layer => {
+          layer.style.transition = 'transform 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        });
+      };
+
+      const onMouseMove = (e) => {
+        if (window.innerWidth < 768) return;
+        const rect = hero.getBoundingClientRect();
+        // Calculate offset from the center of the hero section, normalized to -1 to 1
+        const x = (e.clientX - rect.left - rect.width / 2) / (rect.width / 2);
+        const y = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2);
+        
+        layers.forEach(layer => {
+          const depth = parseFloat(layer.getAttribute('data-depth')) || 0;
+          // Max translation: depth * 60px
+          const moveX = x * depth * 60;
+          const moveY = y * depth * 60;
+          
+          layer.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+        });
+      };
+
+      const onMouseLeave = () => {
+        isHovered = false;
+        layers.forEach(layer => {
+          layer.style.transition = 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+          layer.style.transform = 'translate3d(0, 0, 0)';
+        });
+      };
+
+      hero.addEventListener('mouseenter', onMouseEnter);
+      hero.addEventListener('mousemove', onMouseMove);
+      hero.addEventListener('mouseleave', onMouseLeave);
+    }
+  });
+</script>
 </body></html><!-- Dynamic page generated in 0.631 seconds. --><!-- Cached page generated by WP-Super-Cache on 2026-06-15 12:18:19 --><!-- Compression = gzip -->
