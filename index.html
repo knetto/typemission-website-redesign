@@ -123,6 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .elementor-316 .elementor-element.elementor-element-c694225 .elementor-button,
   .elementor-316 .elementor-element.elementor-element-07ce5d1 .elementor-button {
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    white-space: nowrap !important;
   }
   .elementor-316 .elementor-element.elementor-element-c694225 .elementor-button:hover {
     transform: translateY(-2px) scale(1.02);
@@ -131,6 +132,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .elementor-316 .elementor-element.elementor-element-07ce5d1 .elementor-button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Keep buttons side-by-side without wrapping under each other */
+  @media (min-width: 768px) {
+    .elementor-316 .elementor-element.elementor-element-ecb8136 {
+      flex-wrap: nowrap !important;
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 16px !important;
+    }
+    .elementor-316 .elementor-element.elementor-element-c694225,
+    .elementor-316 .elementor-element.elementor-element-07ce5d1 {
+      width: auto !important;
+    }
   }
 
   /* Blue Counter/Rating badges */
@@ -243,6 +258,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   .hero-layer-girl img {
     height: 100%;
     width: auto;
+  }
+
+  /* Prevent text column from overlapping slanted hero image */
+  @media (min-width: 768px) {
+    .elementor-316 .elementor-element.elementor-element-f351f83 {
+      max-width: 480px !important;
+    }
   }
 
   /* Tablet / Desktop overlap fixes */
@@ -413,7 +435,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="elementor-element elementor-element-3e3ed40 elementor-widget elementor-widget-text-editor" data-id="3e3ed40" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
           <div class="elementor-widget-container">
-            <p class="hero-description">Stap in de wereld van de SuperSpySchool. Met een spannend spionnenavontuur en leuke games leert je kind spelenderwijs blind typen!</p>
+            <p class="hero-description">Stap in de SuperSpySchool: hét spannende spionnenavontuur waarin je kind spelenderwijs leert blind typen!</p>
             <ul class="hero-checklist-new">
               <li>
                 <svg class="check-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
