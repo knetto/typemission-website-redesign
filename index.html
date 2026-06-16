@@ -6512,7 +6512,7 @@
   </style>
   <style id="typemission-course-responsive-fix">
     :root {
-      --typemission-mobile-side-padding: 5px
+      --typemission-mobile-side-padding: 16px
     }
 
     @media(min-width:1025px) {
@@ -6754,8 +6754,62 @@
       display: none !important
     }
 
-    /* Custom Mobile Improvements for "Hoe Werkt Het" section */
-    @media (max-width: 767px) {
+    /* Custom Mobile Improvements for "Hoe Werkt Het" section.
+       Applies across the whole tablet+mobile range (<=1024px): above 767px the
+       desktop image (which carries the purple shadow) is hidden and the columns
+       keep fixed widths (455+75+550px) that overflow the viewport, which made the
+       text overlap the image and the purple background disappear. Forcing the
+       single-column stacked layout here fixes both. */
+    @media (max-width: 1024px) {
+      /* Consistent side padding for the whole section on tablet/mobile.
+         Set via Elementor's padding var on the element (same mechanism the
+         generic <=767px rule uses) so the two don't stack into double padding. */
+      .elementor-316 .elementor-element.elementor-element-2919ed4 {
+        --padding-left: var(--typemission-mobile-side-padding);
+        --padding-right: var(--typemission-mobile-side-padding);
+      }
+
+      /* Stack each row (image on top, text below) instead of side-by-side.
+         The inner flex wrapper is targeted directly with nowrap so the mobile
+         (<=767px) --flex-wrap-mobile:wrap can't wrap the text column up next to
+         the image and overlap it. --container-widget-height:auto removes the
+         100% child height that fed that wrap/overlap. */
+      .elementor-316 .elementor-element.elementor-element-8117077,
+      .elementor-316 .elementor-element.elementor-element-8cbec6e,
+      .elementor-316 .elementor-element.elementor-element-18da1c9 {
+        --flex-direction: column;
+        --flex-wrap: nowrap;
+        --container-widget-height: auto !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-8117077>.e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-8cbec6e>.e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-18da1c9>.e-con-inner {
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        align-content: flex-start !important;
+      }
+
+      /* Let the image and text columns take the full width when stacked */
+      .elementor-316 .elementor-element.elementor-element-268904b,
+      .elementor-316 .elementor-element.elementor-element-bf72858,
+      .elementor-316 .elementor-element.elementor-element-ef0a95b,
+      .elementor-316 .elementor-element.elementor-element-f7a787a,
+      .elementor-316 .elementor-element.elementor-element-cdbe703,
+      .elementor-316 .elementor-element.elementor-element-9aa79e4 {
+        --width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      /* Drop the empty spacer columns that sat between image and text */
+      .elementor-316 .elementor-element.elementor-element-8a3dc22,
+      .elementor-316 .elementor-element.elementor-element-a112f59,
+      .elementor-316 .elementor-element.elementor-element-02e8bee {
+        display: none !important;
+      }
+
       /* Watermark backgrounds for numbers 1, 2, and 3 */
       body:not(.rtl) .elementor-316 .elementor-element.elementor-element-d30836e {
         right: -20px !important;
@@ -6796,19 +6850,24 @@
         min-height: 40px !important;
       }
 
-      /* Margin below image columns to separate them from the text below */
+      /* Margin below image columns to separate them from the text below.
+         The drop-shadow drops 15px into this gap, so ~40px keeps a comfortable
+         ~25px of visual space before the heading. */
       .elementor-316 .elementor-element.elementor-element-268904b,
       .elementor-316 .elementor-element.elementor-element-ef0a95b,
       .elementor-316 .elementor-element.elementor-element-cdbe703 {
-        margin-bottom: 25px !important;
+        margin-bottom: 40px !important;
       }
 
-      /* Image styling for mobile: center them, add box shadows, avoid overflow */
+      /* Image styling for tablet/mobile: center them, add box shadows, avoid
+         overflow. max-width keeps the small source image from upscaling and
+         going blurry on wider tablet viewports. */
       .elementor-316 .elementor-element.elementor-element-dfe499b img,
       .elementor-316 .elementor-element.elementor-element-5564590 img,
       .elementor-316 .elementor-element.elementor-element-5708888 img {
         display: block !important;
         width: calc(100% - 40px) !important;
+        max-width: 456px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         border-radius: 20px !important;
@@ -6831,6 +6890,27 @@
       .elementor-316 .elementor-element.elementor-element-9aa79e4 {
         padding-left: 20px !important;
         padding-right: 20px !important;
+      }
+    }
+
+    /* Narrow-desktop fix for the offset purple shadow.
+       The full -95px/95px shadow only has room once the centered 1140px content
+       leaves wide gutters (~1366px+). Below that the purple block hit the screen
+       edge, so here we inset the section and use a smaller offset that keeps a
+       consistent ~16px gap from the edge. */
+    @media (min-width: 1025px) and (max-width: 1366px) {
+      .elementor-316 .elementor-element.elementor-element-2919ed4 {
+        --padding-left: 56px;
+        --padding-right: 56px;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-39e4843 img,
+      .elementor-316 .elementor-element.elementor-element-b8b7ded img {
+        box-shadow: -40px 40px 0px 0px #38032e !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-85b241c img {
+        box-shadow: 40px 40px 0px 0px #38032e !important;
       }
     }
   </style>
@@ -7728,6 +7808,7 @@
           .hero-checklist-new li {
             font-size: 15px !important;
             margin-bottom: 10px !important;
+            justify-content: center !important;
           }
 
           /* Blue Badges on mobile */
@@ -7801,8 +7882,8 @@
           }
 
           .elementor-316 .elementor-element.elementor-element-cd07f65 .elementor-heading-title {
-            margin: 0 !important;
-            text-align: left !important;
+            margin: 0 0 15px 0 !important;
+            text-align: center !important;
           }
 
           .elementor-316 .elementor-element.elementor-element-3e3ed40 {
@@ -7810,17 +7891,18 @@
           }
 
           .hero-description {
-            margin: 0 !important;
-            text-align: left !important;
+            margin: 0 0 20px 0 !important;
+            text-align: center !important;
           }
 
           .hero-checklist-new {
-            margin: 22px 0 0 0 !important;
-            max-width: none !important;
+            margin: 20px auto 25px auto !important;
+            max-width: 320px !important;
           }
 
           .hero-checklist-new li {
-            margin-bottom: 12px !important;
+            margin-bottom: 10px !important;
+            justify-content: center !important;
           }
 
           .hero-checklist-new li:last-child {
