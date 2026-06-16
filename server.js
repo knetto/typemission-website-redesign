@@ -24,6 +24,17 @@ const MIME_TYPES = {
 };
 
 const server = http.createServer((req, res) => {
+  if (req.method === 'POST' && req.url === '/log-layout') {
+    let body = '';
+    req.on('data', chunk => { body += chunk; });
+    req.on('end', () => {
+      fs.writeFileSync(path.join(__dirname, 'layout.txt'), body);
+      res.writeHead(200, { 'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*' });
+      res.end('OK');
+    });
+    return;
+  }
+
   console.log(`Request: ${req.method} ${req.url}`);
   // Decode URL to handle spaces and special chars
   let safeUrl;

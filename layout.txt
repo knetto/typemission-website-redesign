@@ -1,0 +1,139 @@
+{
+  "burgerRect": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "left": 0
+  },
+  "logoRect": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "left": 0
+  },
+  "promoTextRect": {
+    "x": 808.21875,
+    "y": 18.75,
+    "width": 928.5625,
+    "height": 16,
+    "top": 18.75,
+    "right": 1736.78125,
+    "bottom": 34.75,
+    "left": 808.21875
+  },
+  "promoWidgetContainerRect": {
+    "x": 808.21875,
+    "y": 18.75,
+    "width": 928.5625,
+    "height": 16,
+    "top": 18.75,
+    "right": 1736.78125,
+    "bottom": 34.75,
+    "left": 808.21875
+  },
+  "promoWidgetRect": {
+    "x": 808.21875,
+    "y": 18.75,
+    "width": 928.5625,
+    "height": 16,
+    "top": 18.75,
+    "right": 1736.78125,
+    "bottom": 34.75,
+    "left": 808.21875
+  },
+  "promoColumnRect": {
+    "x": 808.21875,
+    "y": 18.75,
+    "width": 928.5625,
+    "height": 16,
+    "top": 18.75,
+    "right": 1736.78125,
+    "bottom": 34.75,
+    "left": 808.21875
+  },
+  "loginBtnRect": {
+    "x": 1835.28125,
+    "y": 21,
+    "width": 87.21875,
+    "height": 16,
+    "top": 21,
+    "right": 1922.5,
+    "bottom": 37,
+    "left": 1835.28125
+  },
+  "promoContainerRect": {
+    "x": 622.5,
+    "y": 8,
+    "width": 1300,
+    "height": 37.5,
+    "top": 8,
+    "right": 1922.5,
+    "bottom": 45.5,
+    "left": 622.5
+  },
+  "headerContainerRect": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0,
+    "top": 0,
+    "right": 0,
+    "bottom": 0,
+    "left": 0
+  },
+  "windowWidth": 2560,
+  "styles": {
+    "promoColumn": {
+      "display": "flex",
+      "justifyContent": "flex-end",
+      "alignItems": "normal",
+      "paddingLeft": "0px",
+      "paddingRight": "0px",
+      "marginLeft": "0px",
+      "marginRight": "0px",
+      "width": "928.562px",
+      "flexGrow": "0"
+    },
+    "promoWidget": {
+      "display": "block",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "paddingLeft": "0px",
+      "paddingRight": "0px",
+      "marginLeft": "0px",
+      "marginRight": "0px",
+      "width": "928.562px",
+      "flexGrow": "0"
+    },
+    "promoWidgetContainer": {
+      "display": "block",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "paddingLeft": "0px",
+      "paddingRight": "0px",
+      "marginLeft": "0px",
+      "marginRight": "0px",
+      "width": "928.562px",
+      "flexGrow": "0"
+    },
+    "promoText": {
+      "display": "block",
+      "justifyContent": "normal",
+      "alignItems": "normal",
+      "paddingLeft": "0px",
+      "paddingRight": "0px",
+      "marginLeft": "0px",
+      "marginRight": "0px",
+      "width": "928.562px",
+      "flexGrow": "0"
+    }
+  }
+}
