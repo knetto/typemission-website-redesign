@@ -6235,7 +6235,13 @@
       .elementor-element-b54a980 {
         padding-top: 8px !important;
         padding-bottom: 8px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         min-height: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
       }
 
       .elementor-element-b54a980>.e-con-inner {
@@ -6244,16 +6250,18 @@
         min-height: auto !important;
       }
 
-      /* Default layout for narrow mobile screens (<430px): align text to the left, button to the right */
+      /* Default layout for mobile screens (<480px): align text to the left, button to the right */
       .elementor-element-b54a980>.e-con-inner {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
         align-items: center !important;
         justify-content: space-between !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
         gap: 8px !important;
+        width: 100% !important;
+        max-width: 100% !important;
       }
 
       .elementor-element-680f272.elementor-hidden-mobile {
@@ -6288,10 +6296,12 @@
       }
 
       /* Once there is room, center the promo relative to the screen and keep login pinned right. */
-      @media (min-width: 430px) {
+      @media (min-width: 480px) {
         .elementor-element-b54a980>.e-con-inner {
           position: relative !important;
           justify-content: center !important;
+          padding-left: 10px !important;
+          padding-right: 10px !important;
         }
 
         .elementor-element-680f272.elementor-hidden-mobile {
@@ -6309,7 +6319,7 @@
 
         .elementor-element-b81a3ab {
           position: absolute !important;
-          right: 0 !important;
+          right: 10px !important;
           top: 50% !important;
           transform: translateY(-50%) !important;
         }
@@ -6576,6 +6586,17 @@
         padding-right: 0
       }
 
+      /* Nested content rows that carried an extra 10px side padding, pushing
+         their heading/content to 26px from the edge while the rest of the page
+         sat at 16px. Zero the horizontal padding so the parent section's 16px
+         gutter is the single source of truth.
+         25de5de = "De video" heading row, 83392b2 = "Reviews" heading row. */
+      .elementor-316 .elementor-element.elementor-element-25de5de,
+      .elementor-316 .elementor-element.elementor-element-83392b2 {
+        --padding-left: 0px !important;
+        --padding-right: 0px !important
+      }
+
       .elementor-316 .elementor-element.elementor-element-5bdbe7f {
         --padding-top: 0px;
         --padding-bottom: 0px;
@@ -6587,7 +6608,7 @@
       .elementor-316 .elementor-element.elementor-element-5bdbe7f>.e-con-inner {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 12px;
         width: 100%;
         max-width: 430px;
         margin-right: auto;
@@ -6638,7 +6659,7 @@
       .elementor-316 .elementor-element.elementor-element-cb70d27 {
         display: grid !important;
         grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 14px;
+        gap: 12px;
         width: 100%;
         max-width: 100%;
         --width: 100%
@@ -6648,15 +6669,18 @@
       .elementor-316 .elementor-element.elementor-element-d15eb8f,
       .elementor-316 .elementor-element.elementor-element-9afca70,
       .elementor-316 .elementor-element.elementor-element-e45fa9a {
-        width: 100%;
-        min-height: 178px;
-        --border-radius: 16px;
-        --padding-top: 24px;
-        --padding-bottom: 24px;
-        --padding-left: 24px;
-        --padding-right: 24px;
-        --width: 100%;
-        box-sizing: border-box
+        width: 100% !important;
+        min-height: 0 !important;
+        padding: 20px !important;
+        border-radius: 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-8314ea9 p,
+      .elementor-316 .elementor-element.elementor-element-d15eb8f p,
+      .elementor-316 .elementor-element.elementor-element-9afca70 p,
+      .elementor-316 .elementor-element.elementor-element-e45fa9a p {
+        margin-bottom: 0 !important;
       }
 
       .elementor-316 .elementor-element.elementor-element-bb74c89 .elementor-heading-title,
@@ -6859,37 +6883,67 @@
         margin-bottom: 40px !important;
       }
 
-      /* Image styling for tablet/mobile: center them, add box shadows, avoid
-         overflow. max-width keeps the small source image from upscaling and
-         going blurry on wider tablet viewports. */
+      /* --- "Hoe werkt het?" method rows (tablet + mobile, <= 1024px) ---
+         The whole block is ONE centered column with a capped width, so:
+          - the image never grows huge on wider screens,
+          - the image and the text always share the same width,
+          - the column (incl. the offset purple shadow) has equal whitespace on
+            both sides. */
+
+      /* Each stacked row = one centered column (capped just above the image's
+         crisp max so it never upscales). Image and text both fill it. */
+      .elementor-316 .elementor-element.elementor-element-8117077 > .e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-8cbec6e > .e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-18da1c9 > .e-con-inner {
+        max-width: 460px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Section title shares the same centered column so it lines up with the
+         cards below it. */
+      .elementor-316 .elementor-element.elementor-element-a4a983a,
+      .elementor-316 .elementor-element.elementor-element-7b8b3d0 {
+        max-width: 460px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      /* Text fills the column. */
+      .elementor-316 .elementor-element.elementor-element-bf72858,
+      .elementor-316 .elementor-element.elementor-element-f7a787a,
+      .elementor-316 .elementor-element.elementor-element-9aa79e4 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      /* Image is 15px narrower than the column and shifted to the side OPPOSITE
+         its shadow, so that image + the 15px offset purple shadow together fill
+         the column exactly -> equal whitespace on both sides. Capped column
+         keeps it crisp (never upscales). */
       .elementor-316 .elementor-element.elementor-element-dfe499b img,
       .elementor-316 .elementor-element.elementor-element-5564590 img,
       .elementor-316 .elementor-element.elementor-element-5708888 img {
         display: block !important;
-        width: calc(100% - 40px) !important;
-        max-width: 456px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        width: calc(100% - 15px) !important;
+        max-width: calc(100% - 15px) !important;
         border-radius: 20px !important;
       }
 
-      /* Row 1 and Row 3 shadows offset left/bottom */
+      /* Rows 1 & 3: shadow points LEFT, so push the image 15px right. */
       .elementor-316 .elementor-element.elementor-element-dfe499b img,
       .elementor-316 .elementor-element.elementor-element-5708888 img {
+        margin-left: 15px !important;
+        margin-right: 0 !important;
         box-shadow: -15px 15px 0px 0px #38032e !important;
       }
 
-      /* Row 2 shadow offset right/bottom */
+      /* Row 2: shadow points RIGHT, so keep the image left. */
       .elementor-316 .elementor-element.elementor-element-5564590 img {
+        margin-left: 0 !important;
+        margin-right: 15px !important;
         box-shadow: 15px 15px 0px 0px #38032e !important;
-      }
-
-      /* Spacing/alignment for the text columns on mobile */
-      .elementor-316 .elementor-element.elementor-element-bf72858,
-      .elementor-316 .elementor-element.elementor-element-f7a787a,
-      .elementor-316 .elementor-element.elementor-element-9aa79e4 {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
       }
     }
 
@@ -7837,10 +7891,14 @@
 
         /* Small layout differences between phone and tablet */
         @media (max-width: 767px) {
+          /* Align hero card edge to the same 16px side gutter as every other
+             section. The section (775ec8f) already supplies 16px padding, so the
+             card needs 0 extra horizontal margin (was 10px, which pushed the card
+             to 26px from the screen edge while other sections sat at 16px). */
           .elementor-316 .elementor-element.elementor-element-fcba14e {
-            margin-left: 10px !important;
-            margin-right: 10px !important;
-            width: calc(100% - 20px) !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            width: 100% !important;
           }
 
           .elementor-316 .elementor-element.elementor-element-143ce33 {
