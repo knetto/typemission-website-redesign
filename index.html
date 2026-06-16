@@ -185,6 +185,7 @@
 
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
       display: inline-flex;
       align-items: center;
@@ -207,6 +208,7 @@
 
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more::after {
       content: "→";
       display: inline-block;
@@ -220,6 +222,8 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button:focus,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:hover,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus {
       transform: translateY(-2px);
@@ -233,6 +237,8 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button:focus::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:hover::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus::after {
       transform: translateX(3px)
@@ -1460,7 +1466,7 @@
       --container-widget-height: 100%;
       --container-widget-flex-grow: 1;
       --container-widget-align-self: stretch;
-      --flex-wrap-mobile: wrap-reverse;
+      --flex-wrap-mobile: wrap;
       --align-items: center;
       --padding-top: 0px;
       --padding-bottom: 0px;
@@ -6671,6 +6677,7 @@
 
       .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
       .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
+      .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
       .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
         min-height: 40px;
         padding: 9px 16px;
@@ -6680,6 +6687,7 @@
 
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
       display: inline-flex;
       align-items: center;
@@ -6703,6 +6711,7 @@
 
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more::after {
       content: "\2192";
       display: inline-block;
@@ -6716,6 +6725,8 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button:focus,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:hover,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus {
       transform: translateY(0);
@@ -6728,6 +6739,8 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button:focus::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:hover::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus::after {
       transform: translateX(4px)
@@ -6739,6 +6752,86 @@
 
     .elementor-316 .elementor-element.elementor-element-e872575 {
       display: none !important
+    }
+
+    /* Custom Mobile Improvements for "Hoe Werkt Het" section */
+    @media (max-width: 767px) {
+      /* Watermark backgrounds for numbers 1, 2, and 3 */
+      body:not(.rtl) .elementor-316 .elementor-element.elementor-element-d30836e {
+        right: -20px !important;
+        left: auto !important;
+        top: -30px !important;
+        opacity: 0.15 !important;
+      }
+      .elementor-316 .elementor-element.elementor-element-d30836e img {
+        max-height: 180px !important;
+        width: auto !important;
+      }
+
+      body:not(.rtl) .elementor-316 .elementor-element.elementor-element-e5cb8b3 {
+        left: -20px !important;
+        right: auto !important;
+        top: -30px !important;
+        opacity: 0.15 !important;
+      }
+      .elementor-316 .elementor-element.elementor-element-e5cb8b3 img {
+        max-height: 180px !important;
+        width: auto !important;
+      }
+
+      body:not(.rtl) .elementor-316 .elementor-element.elementor-element-82fc4b9 {
+        right: -20px !important;
+        left: auto !important;
+        top: -30px !important;
+        opacity: 0.15 !important;
+      }
+      .elementor-316 .elementor-element.elementor-element-82fc4b9 img {
+        max-height: 180px !important;
+        width: auto !important;
+      }
+
+      /* Reduce spacer section heights */
+      .elementor-316 .elementor-element.elementor-element-10893ca,
+      .elementor-316 .elementor-element.elementor-element-8a508cd {
+        min-height: 40px !important;
+      }
+
+      /* Margin below image columns to separate them from the text below */
+      .elementor-316 .elementor-element.elementor-element-268904b,
+      .elementor-316 .elementor-element.elementor-element-ef0a95b,
+      .elementor-316 .elementor-element.elementor-element-cdbe703 {
+        margin-bottom: 25px !important;
+      }
+
+      /* Image styling for mobile: center them, add box shadows, avoid overflow */
+      .elementor-316 .elementor-element.elementor-element-dfe499b img,
+      .elementor-316 .elementor-element.elementor-element-5564590 img,
+      .elementor-316 .elementor-element.elementor-element-5708888 img {
+        display: block !important;
+        width: calc(100% - 40px) !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-radius: 20px !important;
+      }
+
+      /* Row 1 and Row 3 shadows offset left/bottom */
+      .elementor-316 .elementor-element.elementor-element-dfe499b img,
+      .elementor-316 .elementor-element.elementor-element-5708888 img {
+        box-shadow: -15px 15px 0px 0px #38032e !important;
+      }
+
+      /* Row 2 shadow offset right/bottom */
+      .elementor-316 .elementor-element.elementor-element-5564590 img {
+        box-shadow: 15px 15px 0px 0px #38032e !important;
+      }
+
+      /* Spacing/alignment for the text columns on mobile */
+      .elementor-316 .elementor-element.elementor-element-bf72858,
+      .elementor-316 .elementor-element.elementor-element-f7a787a,
+      .elementor-316 .elementor-element.elementor-element-9aa79e4 {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
     }
   </style>
 </head>
@@ -8605,12 +8698,12 @@
                     class="elementor-element elementor-element-5564590 elementor-hidden-desktop elementor-widget elementor-widget-image"
                     data-id="5564590" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                     <div class="elementor-widget-container"> <noscript><img decoding="async"
-                          src="https://www.typemission.be/wp-content/uploads/elementor/thumbs/Codeblaster_transparant-qd656k9ecy8kvd5cla2ac4428wil7u2l48r9f5jnos.webp"
-                          title="Codeblaster_transparant" alt="Codeblaster_transparant" loading="lazy" /></noscript><img
+                          src="https://www.typemission.be/wp-content/uploads/elementor/thumbs/Codeblaster-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
+                          title="Codeblaster" alt="spypad met de typegame codeblaster" loading="lazy" /></noscript><img
                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E"
                         class="lazyload" decoding="async"
-                        data-src="/wp-content/uploads/elementor/thumbs/Codeblaster_transparant-qd656k9ecy8kvd5cla2ac4428wil7u2l48r9f5jnos.webp"
-                        title="Codeblaster_transparant" alt="Codeblaster_transparant" loading="lazy"></div>
+                        data-src="/wp-content/uploads/elementor/thumbs/Codeblaster-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
+                        title="Codeblaster" alt="spypad met de typegame codeblaster" loading="lazy"></div>
                   </div>
                 </div>
                 <div class="elementor-element elementor-element-a112f59 e-con-full e-flex e-con e-child"
@@ -8684,12 +8777,12 @@
                     class="elementor-element elementor-element-5708888 elementor-hidden-desktop elementor-widget elementor-widget-image"
                     data-id="5708888" data-element_type="widget" data-e-type="widget" data-widget_type="image.default">
                     <div class="elementor-widget-container"> <noscript><img decoding="async"
-                          src="https://www.typemission.be/wp-content/uploads/elementor/thumbs/statusscherm_transparant-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
-                          title="statusscherm_transparant" alt="Statusscherm" loading="lazy" /></noscript><img
+                          src="https://www.typemission.be/wp-content/uploads/elementor/thumbs/Status-scherm-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
+                          title="Status-scherm" alt="Status-scherm" loading="lazy" /></noscript><img
                         src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E"
                         class="lazyload" decoding="async"
-                        data-src="/wp-content/uploads/elementor/thumbs/statusscherm_transparant-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
-                        title="statusscherm_transparant" alt="Statusscherm" loading="lazy"></div>
+                        data-src="/wp-content/uploads/elementor/thumbs/Status-scherm-qd656l78js9v6z3zfsgwwlviuadyfj6bgdeqwfi9ik.webp"
+                        title="Status-scherm" alt="Status-scherm" loading="lazy"></div>
                   </div>
                 </div>
                 <div class="elementor-element elementor-element-02e8bee e-con-full e-flex e-con e-child"
@@ -8777,7 +8870,7 @@
                     <p>Ontdek wat kinderen en ouders te zeggen hebben over onze typecursus. Bij TypeMission streven we
                       naar de beste ervaring voor zowel kinderen als ouders.</p>
                     <p>In Nederland heeft de cursus een <strong>gemiddelde beoordeling van een 8,8</strong> op Feedback
-                      Company! <a href="/reviews/index.html">Lees meer reviews</a></p>
+                      Company! <a href="/reviews/index.html">Meer lezen</a></p>
                   </div>
                 </div>
                 <div class="elementor-element elementor-element-f0c5122 e-flex e-con-boxed e-con e-child"
