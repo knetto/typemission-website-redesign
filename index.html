@@ -6,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     @media (max-width: 767px) {
+
       /* Show the nested tabs container on mobile and layout as a vertical stack with content at the top (column-reverse) */
       .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile {
         --n-tabs-heading-display: flex !important;
         --n-tabs-content-display: flex !important;
-        --n-tabs-direction: column-reverse !important; /* Image at top, buttons at bottom */
+        --n-tabs-direction: column-reverse !important;
+        /* Image at top, buttons at bottom */
         --n-tabs-gap: 20px !important;
       }
-      
+
       /* Display tabs list under the image, using grid to place all 5 buttons next to each other */
       .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tabs-heading {
         display: grid !important;
@@ -23,17 +25,19 @@
         margin: 0 !important;
         width: 100% !important;
         height: auto !important;
-        flex-basis: auto !important; /* Overrides the fixed flex-basis height from desktop styles */
+        flex-basis: auto !important;
+        /* Overrides the fixed flex-basis height from desktop styles */
         overflow: visible !important;
       }
-      
+
       /* Make tab buttons compact and responsive */
       .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tab-title {
         order: initial !important;
         min-width: 0 !important;
         width: auto !important;
         height: auto !important;
-        --n-tabs-title-height: auto !important; /* Overrides 100% height from desktop styles */
+        --n-tabs-title-height: auto !important;
+        /* Overrides 100% height from desktop styles */
         margin-block-start: 0 !important;
         margin-block-end: 0 !important;
         padding: 8px 4px !important;
@@ -43,7 +47,7 @@
         align-items: center !important;
         justify-content: center !important;
       }
-      
+
       /* Style text inside tab buttons to be readable on narrow screens */
       .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tab-title-text {
         font-size: 10px !important;
@@ -53,12 +57,12 @@
         word-break: break-word !important;
         hyphens: auto !important;
       }
-      
+
       .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tabs-content>.e-con {
         order: initial !important;
         width: 100% !important;
       }
-      
+
       /* Fix background image container height on mobile for all tab panels */
       .elementor-316 .elementor-element.elementor-element-5dabf3d,
       .elementor-316 .elementor-element.elementor-element-3cd5a9b,
@@ -76,6 +80,79 @@
         --padding-top: 12px !important;
         --padding-bottom: 12px !important;
       }
+
+      /* Match the CTA banner design with the rest of the page on mobile */
+      .elementor-316 .elementor-element.elementor-element-bac2e21 {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        box-sizing: border-box !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-7eecabe {
+        border-radius: 20px !important;
+        overflow: hidden !important;
+        padding-left: 20px !important;
+        padding-right: 10px !important;
+        padding-top: 35px !important;
+        padding-bottom: 35px !important;
+        background-image: linear-gradient(90deg, rgba(59, 7, 51, 0.95) 0%, rgba(59, 7, 51, 0.9) 45%, rgba(59, 7, 51, 0.6) 70%, rgba(59, 7, 51, 0) 95%), url("https://www.typemission.be/wp-content/uploads/2023/09/Banner_proefles-1.webp") !important;
+        background-position: 65% center !important;
+        background-size: cover !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-b32a7a2 {
+        --width: 82% !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-c9a5934 .elementor-heading-title {
+        font-size: 26px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 12px !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-0a857ee {
+        font-size: 15px !important;
+        line-height: 1.4 !important;
+        font-weight: 300 !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-dfe854b .elementor-button {
+        padding: 12px 20px !important;
+        border-radius: 12px !important;
+        font-size: 14px !important;
+        box-shadow: 0 4px 15px rgba(230, 126, 34, 0.2) !important;
+        transition: all 0.3s ease !important;
+        border: none !important;
+      }
+
+      .elementor-316 .elementor-element.elementor-element-dfe854b .elementor-button:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4) !important;
+      }
+    }
+
+    /* Custom animation for rating stars when scrolled into view */
+    .animations-active .elementor-widget-rating .e-rating .e-icon-wrapper.e-icon-marked {
+      width: 0% !important;
+      transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon-wrapper.e-icon-marked {
+      width: var(--e-rating-icon-marked-width, 100%) !important;
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(1) .e-icon-marked {
+      transition-delay: 0s;
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(2) .e-icon-marked {
+      transition-delay: 0.12s;
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(3) .e-icon-marked {
+      transition-delay: 0.24s;
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(4) .e-icon-marked {
+      transition-delay: 0.36s;
+    }
+    .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(5) .e-icon-marked {
+      transition-delay: 0.48s;
     }
   </style>
   <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -2187,6 +2264,7 @@
     .elementor-316 .elementor-element.elementor-element-5dabf3d:not(.elementor-motion-effects-element-type-background),
     .elementor-316 .elementor-element.elementor-element-5dabf3d>.elementor-motion-effects-container>.elementor-motion-effects-layer {
       background-image: url("https://www.typemission.be/wp-content/uploads/2023/09/School1-1.webp");
+      background-position: center center;
       background-size: cover
     }
 
@@ -2232,7 +2310,7 @@
     .elementor-316 .elementor-element.elementor-element-c31833b:not(.elementor-motion-effects-element-type-background),
     .elementor-316 .elementor-element.elementor-element-c31833b>.elementor-motion-effects-container>.elementor-motion-effects-layer {
       background-image: url("https://www.typemission.be/wp-content/uploads/2023/09/Typetris.webp");
-      background-position: center left;
+      background-position: center center;
       background-size: cover
     }
 
@@ -6872,6 +6950,7 @@
        text overlap the image and the purple background disappear. Forcing the
        single-column stacked layout here fixes both. */
     @media (max-width: 1024px) {
+
       /* Consistent side padding for the whole section on tablet/mobile.
          Set via Elementor's padding var on the element (same mechanism the
          generic <=767px rule uses) so the two don't stack into double padding. */
@@ -6928,6 +7007,7 @@
         top: -30px !important;
         opacity: 0.15 !important;
       }
+
       .elementor-316 .elementor-element.elementor-element-d30836e img {
         max-height: 180px !important;
         width: auto !important;
@@ -6939,6 +7019,7 @@
         top: -30px !important;
         opacity: 0.15 !important;
       }
+
       .elementor-316 .elementor-element.elementor-element-e5cb8b3 img {
         max-height: 180px !important;
         width: auto !important;
@@ -6950,6 +7031,7 @@
         top: -30px !important;
         opacity: 0.15 !important;
       }
+
       .elementor-316 .elementor-element.elementor-element-82fc4b9 img {
         max-height: 180px !important;
         width: auto !important;
@@ -6979,9 +7061,9 @@
 
       /* Each stacked row = one centered column (capped just above the image's
          crisp max so it never upscales). Image and text both fill it. */
-      .elementor-316 .elementor-element.elementor-element-8117077 > .e-con-inner,
-      .elementor-316 .elementor-element.elementor-element-8cbec6e > .e-con-inner,
-      .elementor-316 .elementor-element.elementor-element-18da1c9 > .e-con-inner {
+      .elementor-316 .elementor-element.elementor-element-8117077>.e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-8cbec6e>.e-con-inner,
+      .elementor-316 .elementor-element.elementor-element-18da1c9>.e-con-inner {
         max-width: 460px !important;
         margin-left: auto !important;
         margin-right: auto !important;
@@ -6998,11 +7080,13 @@
       }
 
       @media (max-width: 530px) {
+
         .elementor-316 .elementor-element.elementor-element-a4a983a,
         .elementor-316 .elementor-element.elementor-element-7b8b3d0 {
           margin-left: 0 !important;
           margin-right: auto !important;
         }
+
         .elementor-316 .elementor-element.elementor-element-a4a983a .elementor-heading-title,
         .elementor-316 .elementor-element.elementor-element-7b8b3d0 .elementor-heading-title {
           text-align: left !important;
@@ -7947,7 +8031,7 @@
           .elementor-316 .elementor-element.elementor-element-143ce33 {
             padding-top: 0px !important;
             /* Reduced to eliminate gap */
-            margin-top: -15px !important;
+            margin-top: -40px !important;
             /* Pull text up closer to the visual card */
             padding-bottom: 20px !important;
             padding-left: 20px !important;
@@ -7977,12 +8061,16 @@
           .hero-checklist-new {
             margin: 20px auto 25px auto !important;
             max-width: 320px !important;
+            width: fit-content !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
           }
 
           .hero-checklist-new li {
             font-size: 15px !important;
             margin-bottom: 10px !important;
-            justify-content: center !important;
+            justify-content: flex-start !important;
           }
 
           /* Blue Badges on mobile */
@@ -8011,6 +8099,7 @@
 
         /* Small layout differences between phone and tablet */
         @media (max-width: 767px) {
+
           /* Align hero card edge to the same 16px side gutter as every other
              section. The section (775ec8f) already supplies 16px padding, so the
              card needs 0 extra horizontal margin (was 10px, which pushed the card
@@ -8076,11 +8165,15 @@
           .hero-checklist-new {
             margin: 20px auto 25px auto !important;
             max-width: 320px !important;
+            width: fit-content !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
           }
 
           .hero-checklist-new li {
             margin-bottom: 10px !important;
-            justify-content: center !important;
+            justify-content: flex-start !important;
           }
 
           .hero-checklist-new li:last-child {
@@ -8268,6 +8361,7 @@
 
         /* 1. Tablet & Mobile shared styles (<= 1024px) */
         @media (max-width: 1024px) {
+
           /* Hide background parallax character graphics on mobile/tablet to prevent overflow/clutter */
           .elementor-316 .elementor-element.elementor-element-6c0ef87,
           .elementor-316 .elementor-element.elementor-element-84ece92 {
@@ -8341,6 +8435,7 @@
 
         /* 2. Mobile specific styles (<= 767px) */
         @media (max-width: 767px) {
+
           /* Add smaller padding inside the card for phone screens */
           .elementor-316 .elementor-element.elementor-element-fd56a49 {
             padding-left: 16px !important;
@@ -9717,7 +9812,8 @@
               <div class="elementor-widget-container">
                 <p>Met meer dan 15 jaar ervaring in het verzorgen van typecursussen in Nederland, hebben we onze
                   succesvolle cursus nu uitgebreid naar België. We zijn trots op onze resultaten en streven er
-                  voortdurend naar om de typecursus steeds leuker en beter te maken. <a href="/over-ons/index.html">Meer lezen</a></p>
+                  voortdurend naar om de typecursus steeds leuker en beter te maken. <a href="/over-ons/index.html">Meer
+                    lezen</a></p>
               </div>
             </div>
             <div
@@ -11104,6 +11200,7 @@
       if (reduceMotion) return;
 
       gsap.registerPlugin(ScrollTrigger);
+      document.body.classList.add('animations-active');
 
       const isVisible = (element) => {
         if (!element) return false;
@@ -11243,6 +11340,30 @@
             once: true
           }
         });
+      });
+
+      // Animate rating stars on load if in viewport, or when scrolled into view
+      const ratingWidgets = document.querySelectorAll('.elementor-widget-rating');
+      ratingWidgets.forEach((ratingWidget) => {
+        if (!isVisible(ratingWidget)) return;
+
+        const rect = ratingWidget.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isInViewport) {
+          // If visible on load, start animation after a short delay
+          setTimeout(() => {
+            ratingWidget.classList.add('animate-stars');
+          }, 350);
+        } else {
+          // Otherwise, wait until scrolled into view
+          ScrollTrigger.create({
+            trigger: ratingWidget,
+            start: 'top 88%',
+            once: true,
+            onEnter: () => ratingWidget.classList.add('animate-stars')
+          });
+        }
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh());

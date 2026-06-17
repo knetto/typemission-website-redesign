@@ -10,14 +10,14 @@
     "left": 10
   },
   "logoRect": {
-    "x": 135.5,
+    "x": 151,
     "y": 38.5625,
     "width": 110,
-    "height": 45.96875,
+    "height": 45.953125,
     "top": 38.5625,
-    "right": 245.5,
-    "bottom": 84.53125,
-    "left": 135.5
+    "right": 261,
+    "bottom": 84.515625,
+    "left": 151
   },
   "promoTextRect": {
     "x": 10,
@@ -52,44 +52,44 @@
   "promoColumnRect": {
     "x": 10,
     "y": 8,
-    "width": 276.3125,
+    "width": 307.3125,
     "height": 16.796875,
     "top": 8,
-    "right": 286.3125,
+    "right": 317.3125,
     "bottom": 24.796875,
     "left": 10
   },
   "loginBtnRect": {
-    "x": 294.3125,
+    "x": 325.3125,
     "y": 8,
     "width": 76.6875,
     "height": 16.796875,
     "top": 8,
-    "right": 371,
+    "right": 402,
     "bottom": 24.796875,
-    "left": 294.3125
+    "left": 325.3125
   },
   "promoContainerRect": {
     "x": 0,
     "y": 8,
-    "width": 381,
+    "width": 412,
     "height": 16.796875,
     "top": 8,
-    "right": 381,
+    "right": 412,
     "bottom": 24.796875,
     "left": 0
   },
   "headerContainerRect": {
     "x": 0,
     "y": 32.796875,
-    "width": 381,
+    "width": 412,
     "height": 57.5,
     "top": 32.796875,
-    "right": 381,
+    "right": 412,
     "bottom": 90.296875,
     "left": 0
   },
-  "windowWidth": 381,
+  "windowWidth": 412,
   "styles": {
     "promoColumn": {
       "display": "flex",
@@ -99,7 +99,7 @@
       "paddingRight": "0px",
       "marginLeft": "0px",
       "marginRight": "0px",
-      "width": "276.312px",
+      "width": "307.312px",
       "flexGrow": "1"
     },
     "promoWidget": {
