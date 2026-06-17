@@ -134,7 +134,7 @@
     /* Custom animation for rating stars when scrolled into view */
     .animations-active .elementor-widget-rating .e-rating .e-icon-wrapper.e-icon-marked {
       width: 0% !important;
-      transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: width 0.25s linear;
     }
     .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon-wrapper.e-icon-marked {
       width: var(--e-rating-icon-marked-width, 100%) !important;
@@ -143,16 +143,16 @@
       transition-delay: 0s;
     }
     .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(2) .e-icon-marked {
-      transition-delay: 0.12s;
+      transition-delay: 0.25s;
     }
     .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(3) .e-icon-marked {
-      transition-delay: 0.24s;
+      transition-delay: 0.5s;
     }
     .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(4) .e-icon-marked {
-      transition-delay: 0.36s;
+      transition-delay: 0.75s;
     }
     .animations-active .elementor-widget-rating.animate-stars .e-rating .e-icon:nth-child(5) .e-icon-marked {
-      transition-delay: 0.48s;
+      transition-delay: 1.0s;
     }
   </style>
   <link rel="profile" href="https://gmpg.org/xfn/11">
@@ -6163,6 +6163,14 @@
     html {
       overflow-x: hidden
     }
+
+    /* Native smooth scrolling for in-page anchor links (e.g. the video button).
+       Replaces the removed Lenis smooth-scroll library. */
+    @media (prefers-reduced-motion: no-preference) {
+      html {
+        scroll-behavior: smooth;
+      }
+    }
   </style>
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QEL80QR8V7"></script>
   <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); }
@@ -11031,7 +11039,7 @@
     });
   </script>
 
-  <!-- GSAP & Lenis Smooth Scroll Integration -->
+  <!-- GSAP scroll-triggered animations (native scrolling, no smooth-scroll hijack) -->
   <style>
     /* Prevent Flash of Unstyled Content (FOUC) and optimize performance */
     .elementor-absolute.elementor-widget-image .elementor-widget-container {
@@ -11097,26 +11105,12 @@
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      // 1. Initialize Lenis Smooth Scroll
-      const lenis = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // premium easeOutExponential
-        smoothWheel: true,
-        wheelMultiplier: 1.0
-      });
+      // Native scrolling — no smooth-scroll hijack. ScrollTrigger listens to the
+      // browser's own scroll, so the page stays responsive even if GSAP is slow to load.
+      if (!window.gsap || !window.ScrollTrigger) return;
 
-      lenis.on('scroll', ScrollTrigger.update);
-
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-
-      gsap.ticker.lagSmoothing(0);
-
-      // Register ScrollTrigger plugin
       gsap.registerPlugin(ScrollTrigger);
 
       // 2. Animate Background Characters
@@ -11164,32 +11158,10 @@
         });
       });
 
-      // 3. Section Background Parallax
-      const parallaxSections = [
-        '.elementor-element-fcba14e' // Hero background
-      ];
-
-      parallaxSections.forEach(selector => {
-        const section = document.querySelector(selector);
-        if (!section) return;
-
-        // Get existing background horizontal position (default to center if not set)
-        const computedStyle = window.getComputedStyle(section);
-        const bgPosX = computedStyle.backgroundPositionX || 'center';
-
-        gsap.fromTo(section, {
-          backgroundPosition: `${bgPosX} 20%`
-        }, {
-          backgroundPosition: `${bgPosX} 80%`,
-          ease: "none",
-          scrollTrigger: {
-            trigger: section,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-      });
+      // NOTE: A hero background-position parallax used to live here. Animating
+      // background-position repaints the whole hero image every scroll frame, which
+      // was a major source of scroll lag, so it was removed in favour of the cheap,
+      // GPU-composited transform parallax on the floating characters above.
     });
   </script>
   <script>
@@ -11199,7 +11171,6 @@
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (reduceMotion) return;
 
-      gsap.registerPlugin(ScrollTrigger);
       document.body.classList.add('animations-active');
 
       const isVisible = (element) => {
@@ -11342,28 +11313,16 @@
         });
       });
 
-      // Animate rating stars on load if in viewport, or when scrolled into view
+      // Animate rating stars when they scroll into view
       const ratingWidgets = document.querySelectorAll('.elementor-widget-rating');
       ratingWidgets.forEach((ratingWidget) => {
         if (!isVisible(ratingWidget)) return;
-
-        const rect = ratingWidget.getBoundingClientRect();
-        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
-
-        if (isInViewport) {
-          // If visible on load, start animation after a short delay
-          setTimeout(() => {
-            ratingWidget.classList.add('animate-stars');
-          }, 350);
-        } else {
-          // Otherwise, wait until scrolled into view
-          ScrollTrigger.create({
-            trigger: ratingWidget,
-            start: 'top 88%',
-            once: true,
-            onEnter: () => ratingWidget.classList.add('animate-stars')
-          });
-        }
+        ScrollTrigger.create({
+          trigger: ratingWidget,
+          start: 'top 88%',
+          once: true,
+          onEnter: () => ratingWidget.classList.add('animate-stars')
+        });
       });
 
       window.addEventListener('load', () => ScrollTrigger.refresh());
