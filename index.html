@@ -4,6 +4,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    @media (max-width: 767px) {
+      /* Show the nested tabs container on mobile and layout as a vertical stack with content at the top (column-reverse) */
+      .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile {
+        --n-tabs-heading-display: flex !important;
+        --n-tabs-content-display: flex !important;
+        --n-tabs-direction: column-reverse !important; /* Image at top, buttons at bottom */
+        --n-tabs-gap: 20px !important;
+      }
+      
+      /* Display tabs list under the image, using grid to place all 5 buttons next to each other */
+      .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tabs-heading {
+        display: grid !important;
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 6px !important;
+        padding: 5px 0 10px 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        flex-basis: auto !important; /* Overrides the fixed flex-basis height from desktop styles */
+        overflow: visible !important;
+      }
+      
+      /* Make tab buttons compact and responsive */
+      .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tab-title {
+        order: initial !important;
+        min-width: 0 !important;
+        width: auto !important;
+        height: auto !important;
+        --n-tabs-title-height: auto !important; /* Overrides 100% height from desktop styles */
+        margin-block-start: 0 !important;
+        margin-block-end: 0 !important;
+        padding: 8px 4px !important;
+        box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, .05) !important;
+        border-radius: 6px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      /* Style text inside tab buttons to be readable on narrow screens */
+      .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tab-title-text {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+        text-align: center !important;
+        word-break: break-word !important;
+        hyphens: auto !important;
+      }
+      
+      .elementor-element.elementor-element-a8624f0.e-n-tabs-mobile .e-n-tabs-content>.e-con {
+        order: initial !important;
+        width: 100% !important;
+      }
+      
+      /* Fix background image container height on mobile for all tab panels */
+      .elementor-316 .elementor-element.elementor-element-5dabf3d,
+      .elementor-316 .elementor-element.elementor-element-3cd5a9b,
+      .elementor-316 .elementor-element.elementor-element-c31833b,
+      .elementor-316 .elementor-element.elementor-element-de4286c,
+      .elementor-316 .elementor-element.elementor-element-a6ffbc7 {
+        --min-height: 250px !important;
+      }
+
+      /* Make the blue stats blocks smaller on mobile */
+      .elementor-316 .elementor-element.elementor-element-1e04876,
+      .elementor-316 .elementor-element.elementor-element-a55f82e,
+      .elementor-316 .elementor-element.elementor-element-fb161d3 {
+        --min-height: 80px !important;
+        --padding-top: 12px !important;
+        --padding-bottom: 12px !important;
+      }
+    }
+  </style>
   <link rel="profile" href="https://gmpg.org/xfn/11">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link media="all" href="/wp-content/cache/autoptimize/css/autoptimize_d07a80e7d2156cfefefe287006c9c4e8.css"
@@ -186,6 +260,7 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"],
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
       display: inline-flex;
       align-items: center;
@@ -209,6 +284,7 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more::after {
       content: "→";
       display: inline-block;
@@ -224,6 +300,8 @@
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:hover,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:focus,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus {
       transform: translateY(-2px);
@@ -239,6 +317,8 @@
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:hover::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:focus::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus::after {
       transform: translateX(3px)
@@ -1645,7 +1725,7 @@
     }
 
     .elementor-316 .elementor-element.elementor-element-bcefc26 {
-      --spacer-size: 140px
+      --spacer-size: 70px
     }
 
     .elementor-316 .elementor-element.elementor-element-e90ce83 {
@@ -1686,8 +1766,8 @@
 
     .elementor-316 .elementor-element.elementor-element-83392b2 {
       --display: flex;
-      --padding-top: 60px;
-      --padding-bottom: 60px;
+      --padding-top: 40px;
+      --padding-bottom: 40px;
       --padding-left: 10px;
       --padding-right: 10px
     }
@@ -2034,7 +2114,7 @@
     }
 
     .elementor-316 .elementor-element.elementor-element-bf7607a {
-      --spacer-size: 140px
+      --spacer-size: 70px
     }
 
     .elementor-316 .elementor-element.elementor-element-6cf7116>.elementor-widget-container {
@@ -3333,7 +3413,7 @@
       }
 
       .elementor-316 .elementor-element.elementor-element-bcefc26 {
-        --spacer-size: 100px
+        --spacer-size: 50px
       }
 
       .elementor-316 .elementor-element.elementor-element-e90ce83 {
@@ -3352,7 +3432,7 @@
       }
 
       .elementor-316 .elementor-element.elementor-element-bf7607a {
-        --spacer-size: 100px
+        --spacer-size: 50px
       }
 
       .elementor-316 .elementor-element.elementor-element-8a8fff5.elementor-skin-slideshow .elementor-main-swiper:not(.elementor-thumbnails-swiper) {
@@ -6702,6 +6782,7 @@
       .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
       .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
       .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
+      .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"],
       .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
         min-height: 40px;
         padding: 9px 16px;
@@ -6712,6 +6793,7 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"],
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"],
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"],
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more {
       display: inline-flex;
       align-items: center;
@@ -6736,6 +6818,7 @@
     .elementor-316 .elementor-element.elementor-element-e872575 .elementor-button::after,
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more::after {
       content: "\2192";
       display: inline-block;
@@ -6751,6 +6834,8 @@
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:hover,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:focus,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus {
       transform: translateY(0);
@@ -6765,6 +6850,8 @@
     .elementor-316 .elementor-widget-text-editor a[href="/hoe-werkt-het/index.html"]:focus::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:hover::after,
     .elementor-316 .elementor-widget-text-editor a[href="/reviews/index.html"]:focus::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:hover::after,
+    .elementor-316 .elementor-widget-text-editor a[href="/over-ons/index.html"]:focus::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:hover::after,
     .elementor-316 .elementor-widget-posts a.elementor-post__read-more:focus::after {
       transform: translateX(4px)
@@ -8174,6 +8261,144 @@
             justify-content: center !important;
           }
         }
+
+        /* ==========================================================================
+           Review Section Responsiveness (e90ce83, fd56a49, f0c5122, cards, headings)
+           ========================================================================== */
+
+        /* 1. Tablet & Mobile shared styles (<= 1024px) */
+        @media (max-width: 1024px) {
+          /* Hide background parallax character graphics on mobile/tablet to prevent overflow/clutter */
+          .elementor-316 .elementor-element.elementor-element-6c0ef87,
+          .elementor-316 .elementor-element.elementor-element-84ece92 {
+            display: none !important;
+          }
+
+          /* Round the corners of the light-blue outer container and add a side margin */
+          .elementor-316 .elementor-element.elementor-element-e90ce83 {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            box-sizing: border-box !important;
+          }
+
+          .elementor-316 .elementor-element.elementor-element-fd56a49 {
+            width: 100% !important;
+            min-height: auto !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+            box-sizing: border-box !important;
+          }
+
+          /* Left-align section headings & intro text to match the desktop layout */
+          .elementor-316 .elementor-element.elementor-element-74d8754,
+          .elementor-316 .elementor-element.elementor-element-74d8754 .elementor-heading-title,
+          .elementor-316 .elementor-element.elementor-element-d26e6b0,
+          .elementor-316 .elementor-element.elementor-element-d26e6b0 .elementor-heading-title,
+          .elementor-316 .elementor-element.elementor-element-376c6f2,
+          .elementor-316 .elementor-element.elementor-element-376c6f2 p {
+            text-align: left !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
+          }
+
+          .elementor-316 .elementor-element.elementor-element-d26e6b0 .elementor-heading-title {
+            font-size: 28px !important;
+            line-height: 1.25 !important;
+          }
+
+          .elementor-316 .elementor-element.elementor-element-376c6f2 {
+            font-size: 17px !important;
+            line-height: 1.5 !important;
+            max-width: 650px !important;
+            margin-left: 0 !important;
+            margin-right: auto !important;
+            margin-bottom: 30px !important;
+          }
+
+          /* Adjust spacing for the "Meer reviews" button */
+          .elementor-316 .elementor-element.elementor-element-69383e4 {
+            margin-top: 30px !important;
+          }
+
+          /* Tablet layout for reviews grid: make the 2 visible cards flexible side-by-side */
+          .elementor-316 .elementor-element.elementor-element-f0c5122>.e-con-inner {
+            display: flex !important;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            gap: 20px !important;
+          }
+
+          .elementor-316 .elementor-element.elementor-element-73fbd45,
+          .elementor-316 .elementor-element.elementor-element-a0c1331,
+          .elementor-316 .elementor-element.elementor-element-9514410 {
+            flex: 1 1 0% !important;
+            width: auto !important;
+            max-width: none !important;
+          }
+        }
+
+        /* 2. Mobile specific styles (<= 767px) */
+        @media (max-width: 767px) {
+          /* Add smaller padding inside the card for phone screens */
+          .elementor-316 .elementor-element.elementor-element-fd56a49 {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-top: 24px !important;
+            padding-bottom: 24px !important;
+          }
+
+          .elementor-316 .elementor-element.elementor-element-83392b2 {
+            --padding-top: 0px !important;
+            --padding-bottom: 0px !important;
+          }
+
+          /* Stack review cards vertically on mobile */
+          .elementor-316 .elementor-element.elementor-element-f0c5122>.e-con-inner {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 24px !important;
+          }
+
+          /* Each card spans full width of the container but has a reasonable maximum width for layout balance */
+          .elementor-316 .elementor-element.elementor-element-73fbd45,
+          .elementor-316 .elementor-element.elementor-element-a0c1331,
+          .elementor-316 .elementor-element.elementor-element-9514410 {
+            width: 100% !important;
+            max-width: 420px !important;
+            flex: 1 1 auto !important;
+          }
+
+          /* Refine image heights and text sizes within the cards on small screens */
+          .elementor-316 .elementor-element.elementor-element-2222ccc,
+          .elementor-316 .elementor-element.elementor-element-0871264,
+          .elementor-316 .elementor-element.elementor-element-35df27b {
+            min-height: 220px !important;
+          }
+
+          /* Quote font-size */
+          .elementor-316 .elementor-element.elementor-element-8c9d596,
+          .elementor-316 .elementor-element.elementor-element-b99db5b,
+          .elementor-316 .elementor-element.elementor-element-8f29822 {
+            font-size: 17px !important;
+            line-height: 1.45 !important;
+          }
+
+          /* Name font-size */
+          .elementor-316 .elementor-element.elementor-element-701f8d9 .elementor-heading-title,
+          .elementor-316 .elementor-element.elementor-element-82fbe98 .elementor-heading-title,
+          .elementor-316 .elementor-element.elementor-element-8550d21 .elementor-heading-title {
+            font-size: 19px !important;
+          }
+
+          /* Role font-size */
+          .elementor-316 .elementor-element.elementor-element-898ae0e,
+          .elementor-316 .elementor-element.elementor-element-d88411c,
+          .elementor-316 .elementor-element.elementor-element-16659e3 {
+            font-size: 14px !important;
+          }
+        }
       </style>
 
       <div class="elementor-element elementor-element-fcba14e e-con-full e-flex e-con e-child hero-container-redesign"
@@ -9253,7 +9478,7 @@
           </div>
         </div>
         <div
-          class="elementor-element elementor-element-8a8fff5 elementor-hidden-desktop elementor-hidden-tablet elementor-skin-carousel elementor-arrows-yes elementor-pagination-type-bullets elementor-pagination-position-outside elementor-widget elementor-widget-media-carousel"
+          class="elementor-element elementor-element-8a8fff5 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile elementor-skin-carousel elementor-arrows-yes elementor-pagination-type-bullets elementor-pagination-position-outside elementor-widget elementor-widget-media-carousel"
           data-id="8a8fff5" data-element_type="widget" data-e-type="widget"
           data-settings="{&quot;slides_per_view&quot;:&quot;1&quot;,&quot;skin&quot;:&quot;carousel&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;show_arrows&quot;:&quot;yes&quot;,&quot;pagination&quot;:&quot;bullets&quot;,&quot;speed&quot;:500,&quot;autoplay&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;loop&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;space_between&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_tablet&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]},&quot;space_between_mobile&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:10,&quot;sizes&quot;:[]}}"
           data-widget_type="media-carousel.default">
@@ -9316,7 +9541,7 @@
           </div>
         </div>
         <div
-          class="elementor-element elementor-element-a8624f0 elementor-hidden-mobile e-n-tabs-mobile elementor-widget elementor-widget-n-tabs"
+          class="elementor-element elementor-element-a8624f0 e-n-tabs-mobile elementor-widget elementor-widget-n-tabs"
           data-id="a8624f0" data-element_type="widget" data-e-type="widget" data-widget_type="nested-tabs.default">
           <div class="elementor-widget-container">
             <div class="e-n-tabs" data-widget-number="176563440"
@@ -9492,8 +9717,7 @@
               <div class="elementor-widget-container">
                 <p>Met meer dan 15 jaar ervaring in het verzorgen van typecursussen in Nederland, hebben we onze
                   succesvolle cursus nu uitgebreid naar België. We zijn trots op onze resultaten en streven er
-                  voortdurend naar om de typecursus steeds leuker en beter te maken. <a href="/over-ons/index.html">Meer
-                    lezen.. </a></p>
+                  voortdurend naar om de typecursus steeds leuker en beter te maken. <a href="/over-ons/index.html">Meer lezen</a></p>
               </div>
             </div>
             <div
@@ -10730,8 +10954,8 @@
 
       .elementor-316 .elementor-element.elementor-element-83392b2 {
         --content-width: 1140px;
-        --padding-top: 60px;
-        --padding-bottom: 60px;
+        --padding-top: 40px;
+        --padding-bottom: 40px;
       }
 
       .elementor-316 .elementor-element.elementor-element-83392b2>.e-con-inner {
@@ -10748,9 +10972,9 @@
       .elementor-316 .elementor-element.elementor-element-73fbd45,
       .elementor-316 .elementor-element.elementor-element-a0c1331,
       .elementor-316 .elementor-element.elementor-element-9514410 {
-        width: 360px;
-        max-width: 360px;
-        flex: 0 0 360px;
+        width: 100% !important;
+        max-width: 360px !important;
+        flex: 1 1 300px !important;
       }
 
       .elementor-316 .elementor-element.elementor-element-6c0ef87>.elementor-widget-container {
