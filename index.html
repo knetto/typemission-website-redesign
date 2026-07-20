@@ -9339,6 +9339,93 @@
         </div>
       </div>
     </div>
+    <!-- Typetest Leaderboard Section -->
+    <div class="elementor-element typetest-leaderboard-section e-flex e-con-boxed e-con e-parent" style="background: #ffffff; padding: 80px 0 0 0; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+      <style>
+        @media (max-width: 768px) {
+          #typetest-iframe {
+            display: none !important;
+          }
+          .typetest-leaderboard-section {
+            display: none !important;
+          }
+        }
+      </style>
+
+      <div class="iframe-wrapper" style="width: 100%; max-width: 100%; padding: 0; margin: 0; box-sizing: border-box; background-color: #ffffff;">
+        <iframe 
+          id="typetest-iframe" 
+          src="/leaderboard-iframe/index.html?v=7" 
+          width="100%" 
+          height="700px" 
+          style="border: none; overflow: hidden; display: block; background: #ffffff; width: 100%;" 
+          allowfullscreen>
+        </iframe>
+      </div>
+
+      <script>
+        // Smooth iframe auto-resize with shrink-to-measure and real-time message listener
+        (function() {
+          var iframe = document.getElementById('typetest-iframe');
+          var lastHeight = 0;
+          var syncInterval = null;
+          var messagesActive = false;
+
+          // Real-time resize via postMessage (smooth 60fps updates during animations)
+          window.addEventListener('message', function(e) {
+            if (e.data && e.data.type === 'resize-iframe') {
+              messagesActive = true;
+              if (syncInterval) {
+                clearInterval(syncInterval);
+                syncInterval = null;
+              }
+              var h = Math.ceil(e.data.height);
+              if (h && h > 50 && h !== lastHeight) {
+                iframe.style.transition = 'none';
+                iframe.style.height = h + 'px';
+                lastHeight = h;
+              }
+            }
+          });
+
+          function syncHeight() {
+            try {
+              var doc = iframe.contentDocument || iframe.contentWindow.document;
+              // 1. Disable transition and shrink to 0 to measure true content height
+              iframe.style.transition = 'none';
+              iframe.style.height = '0px';
+              var h = doc.documentElement.scrollHeight;
+              if (!h || h < 50) { iframe.style.height = lastHeight + 'px'; return; }
+              // If height hasn't changed, do not trigger a new transition
+              if (h === lastHeight) { iframe.style.height = lastHeight + 'px'; return; }
+              // 2. Snap back to the OLD height (visually nothing changed)
+              iframe.style.height = lastHeight + 'px';
+              // 3. Force browser to register the old height
+              void iframe.offsetHeight;
+              // 4. Re-enable transition and set the NEW height — this animates smoothly
+              iframe.style.transition = 'height 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+              iframe.style.height = h + 'px';
+              lastHeight = h;
+            } catch(e) {}
+          }
+          iframe.addEventListener('load', function() {
+            // Set initial height without animation
+            try {
+              var doc = iframe.contentDocument || iframe.contentWindow.document;
+              iframe.style.transition = 'none';
+              iframe.style.height = '0px';
+              var h = doc.documentElement.scrollHeight;
+              if (h && h > 50) { iframe.style.height = h + 'px'; lastHeight = h; }
+            } catch(e) {}
+            
+            // Only start polling interval if message listener is not active
+            if (!messagesActive) {
+              syncInterval = setInterval(syncHeight, 300);
+            }
+          });
+        })();
+      </script>
+    </div>
     <div class="elementor-element elementor-element-e90ce83 e-flex e-con-boxed e-con e-parent" data-id="e90ce83"
       data-element_type="container" data-e-type="container"
       data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
