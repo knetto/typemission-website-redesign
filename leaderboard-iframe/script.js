@@ -363,6 +363,7 @@ const completeCoins = document.querySelector("#completeCoins");
 const rankBadge = document.querySelector("#rankBadge");
 const resultTitle = document.querySelector("#resultTitle");
 const resultText = document.querySelector("#resultText");
+const personalBestNotice = document.querySelector("#personalBestNotice");
 const unlockNote = document.querySelector("#unlockNote");
 
 // Live position elements for leaderboard test
@@ -971,6 +972,7 @@ function resetTest() {
   testReadyToFinish = false;
   testFinished = false;
   clearInterval(typewriterId);
+  hidePersonalBestNotice();
 
   if (briefingVideo) {
     briefingVideo.pause();
@@ -1471,20 +1473,17 @@ function revealResults() {
     if (savedName) {
       const scores = initLeaderboard();
       const newEntry = { name: savedName, apm: stats.apm, accuracy: stats.accuracy, isDefault: false, timestamp: Date.now() };
-      scores.push(newEntry);
-      scores.sort((a, b) => {
-        if (b.apm !== a.apm) return b.apm - a.apm;
-        return b.accuracy - a.accuracy;
-      });
-      saveLeaderboard(scores);
-      lastSavedScoreEntry = newEntry;
+      const saveResult = savePersonalBest(scores, newEntry);
+      const savedScores = saveLeaderboard(saveResult.scores);
 
       syncSpyNameUI();
+      showPersonalBestNotice(saveResult, stats);
 
-      const highlightIdx = scores.findIndex(e => e.name === savedName && e.apm === stats.apm && e.accuracy === stats.accuracy);
+      const highlightIdx = savedScores.findIndex(entry => normalizeSpyName(entry.name) === normalizeSpyName(savedName));
       renderLeaderboard(highlightIdx);
     } else {
       syncSpyNameUI();
+      hidePersonalBestNotice();
 
       const placeholderEntry = { name: "Jij", apm: stats.apm, accuracy: stats.accuracy, isPlaceholder: true };
       renderLeaderboard(-1, placeholderEntry);
@@ -3287,7 +3286,6 @@ const DEFAULT_LEADERBOARD = [
   { name: "Pixel Ranger", apm: 65, accuracy: 89, isDefault: true, timestamp: Date.now() - 45 * 24 * 3600 * 1000 }
 ];
 
-let lastSavedScoreEntry = null;
 let activePlaceholderEntry = null;
 
 let leaderboardFilters = {
@@ -3328,6 +3326,96 @@ function getCookie(name) {
   return localStorage.getItem(name);
 }
 
+function normalizeSpyName(name) {
+  return String(name || "").trim().toLocaleLowerCase("nl-BE");
+}
+
+function isBetterLeaderboardScore(candidate, currentBest) {
+  const candidateApm = Number(candidate?.apm) || 0;
+  const currentApm = Number(currentBest?.apm) || 0;
+  if (candidateApm !== currentApm) return candidateApm > currentApm;
+
+  const candidateAccuracy = Number(candidate?.accuracy) || 0;
+  const currentAccuracy = Number(currentBest?.accuracy) || 0;
+  return candidateAccuracy > currentAccuracy;
+}
+
+function sortLeaderboardScores(scores) {
+  return scores.sort((a, b) => {
+    const apmDifference = (Number(b?.apm) || 0) - (Number(a?.apm) || 0);
+    if (apmDifference !== 0) return apmDifference;
+    return (Number(b?.accuracy) || 0) - (Number(a?.accuracy) || 0);
+  });
+}
+
+function deduplicateLeaderboardScores(scores) {
+  const bestScoreByName = new Map();
+  const entriesWithoutName = [];
+
+  scores.forEach(entry => {
+    const normalizedName = normalizeSpyName(entry?.name);
+    if (!normalizedName) {
+      entriesWithoutName.push(entry);
+      return;
+    }
+
+    const currentBest = bestScoreByName.get(normalizedName);
+    if (!currentBest || isBetterLeaderboardScore(entry, currentBest)) {
+      bestScoreByName.set(normalizedName, entry);
+    }
+  });
+
+  return sortLeaderboardScores([...bestScoreByName.values(), ...entriesWithoutName]);
+}
+
+function savePersonalBest(scores, newEntry) {
+  const normalizedName = normalizeSpyName(newEntry.name);
+  const matchingEntries = scores.filter(entry => normalizeSpyName(entry?.name) === normalizedName);
+  const previousBest = matchingEntries.reduce((best, entry) => {
+    return !best || isBetterLeaderboardScore(entry, best) ? entry : best;
+  }, null);
+
+  const scoresWithoutPlayer = scores.filter(entry => normalizeSpyName(entry?.name) !== normalizedName);
+  let status = "first";
+  let savedEntry = newEntry;
+
+  if (previousBest) {
+    if (isBetterLeaderboardScore(newEntry, previousBest)) {
+      status = "improved";
+    } else {
+      status = "kept";
+      savedEntry = previousBest;
+    }
+  }
+
+  const updatedScores = sortLeaderboardScores([...scoresWithoutPlayer, savedEntry]);
+  return { scores: updatedScores, status, savedEntry, previousBest };
+}
+
+function showPersonalBestNotice(saveResult, attemptStats) {
+  if (!personalBestNotice || !saveResult?.savedEntry) return;
+
+  const best = saveResult.savedEntry;
+  personalBestNotice.hidden = false;
+  personalBestNotice.className = `personal-best-notice${saveResult.status === "kept" ? " kept" : ""}`;
+
+  if (saveResult.status === "improved") {
+    const improvement = Math.max(0, best.apm - (Number(saveResult.previousBest?.apm) || 0));
+    personalBestNotice.textContent = `Nieuw persoonlijk record: ${best.apm} APM en ${best.accuracy}% precisie${improvement ? ` (+${improvement} APM)` : ""}.`;
+  } else if (saveResult.status === "kept") {
+    personalBestNotice.textContent = `Je topscore blijft ${best.apm} APM en ${best.accuracy}% precisie. Deze poging was ${attemptStats.apm} APM.`;
+  } else {
+    personalBestNotice.textContent = `Persoonlijke topscore opgeslagen: ${best.apm} APM en ${best.accuracy}% precisie.`;
+  }
+}
+
+function hidePersonalBestNotice() {
+  if (!personalBestNotice) return;
+  personalBestNotice.hidden = true;
+  personalBestNotice.textContent = "";
+  personalBestNotice.className = "personal-best-notice";
+}
+
 function initLeaderboard() {
   let scores = localStorage.getItem("tm_leaderboard_scores");
   let parsed = null;
@@ -3342,11 +3430,17 @@ function initLeaderboard() {
     scores = JSON.stringify(DEFAULT_LEADERBOARD);
     parsed = JSON.parse(scores);
   }
-  return parsed;
+  const deduplicated = deduplicateLeaderboardScores(parsed);
+  if (deduplicated.length !== parsed.length) {
+    localStorage.setItem("tm_leaderboard_scores", JSON.stringify(deduplicated));
+  }
+  return deduplicated;
 }
 
 function saveLeaderboard(scores) {
-  localStorage.setItem("tm_leaderboard_scores", JSON.stringify(scores));
+  const deduplicated = deduplicateLeaderboardScores(scores);
+  localStorage.setItem("tm_leaderboard_scores", JSON.stringify(deduplicated));
+  return deduplicated;
 }
 
 function getTrophySvg(rank, suffix) {
@@ -3812,7 +3906,7 @@ if (leaderboardSubmitBtnResult && leaderboardNameInputResult) {
 
     // Check for duplicates
     const scores = initLeaderboard();
-    const nameExists = scores.some(e => e.name.toLowerCase() === name.toLowerCase());
+    const nameExists = scores.some(entry => normalizeSpyName(entry?.name) === normalizeSpyName(name));
     if (nameExists) {
       if (feedbackEl) {
         feedbackEl.className = "leaderboard-feedback error";
@@ -3826,26 +3920,25 @@ if (leaderboardSubmitBtnResult && leaderboardNameInputResult) {
 
     const stats = resultStats || getTypedStats(finalElapsed);
     
-    // Add new score
+    // Save one personal best per spy name.
     const newEntry = { name: name, apm: stats.apm, accuracy: stats.accuracy, isDefault: false, timestamp: Date.now() };
-    scores.push(newEntry);
-    
-    // Sort and save
-    scores.sort((a, b) => {
-      if (b.apm !== a.apm) return b.apm - a.apm;
-      return b.accuracy - a.accuracy;
-    });
-
-    saveLeaderboard(scores);
-    lastSavedScoreEntry = newEntry;
+    const saveResult = savePersonalBest(scores, newEntry);
+    const savedScores = saveLeaderboard(saveResult.scores);
 
     // Set cookie to remember name
     setCookie("tm_spy_name", name, 365);
-    
-    // Find index of new entry to highlight it
-    const highlightIdx = scores.findIndex(e => e.name === name && e.apm === stats.apm && e.accuracy === stats.accuracy);
-    
+
     syncSpyNameUI();
+    showPersonalBestNotice(saveResult, stats);
+
+    if (feedbackEl) {
+      feedbackEl.className = "leaderboard-feedback success";
+      feedbackEl.textContent = "Topscores worden automatisch bijgewerkt wanneer je jouw record verbetert.";
+      feedbackEl.style.display = "flex";
+    }
+
+    // Find the single saved entry to highlight it.
+    const highlightIdx = savedScores.findIndex(entry => normalizeSpyName(entry.name) === normalizeSpyName(name));
     renderLeaderboard(highlightIdx);
   });
 }
@@ -3855,19 +3948,20 @@ if (leaderboardSubmitBtnResult && leaderboardNameInputResult) {
   const btn = document.querySelector(`#changeSpyNameBtn${view}`);
   if (btn) {
     btn.addEventListener("click", () => {
+      const previousName = getCookie("tm_spy_name");
+
+      // Remove this browser's old personal entry before choosing a new name.
+      if (previousName) {
+        const scores = initLeaderboard();
+        const remainingScores = scores.filter(entry => {
+          return entry.isDefault || normalizeSpyName(entry.name) !== normalizeSpyName(previousName);
+        });
+        saveLeaderboard(remainingScores);
+      }
+
       // Delete cookie
       setCookie("tm_spy_name", "", -1);
-
-      // Remove last saved entry from local storage if exists
-      if (lastSavedScoreEntry) {
-        const scores = initLeaderboard();
-        const matchIdx = scores.findIndex(e => e.name === lastSavedScoreEntry.name && e.apm === lastSavedScoreEntry.apm && e.accuracy === lastSavedScoreEntry.accuracy);
-        if (matchIdx !== -1) {
-          scores.splice(matchIdx, 1);
-          saveLeaderboard(scores);
-        }
-        lastSavedScoreEntry = null;
-      }
+      hidePersonalBestNotice();
 
       // Sync UI across all screens
       syncSpyNameUI();
