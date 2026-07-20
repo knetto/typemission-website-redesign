@@ -5,7 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TypeMission Typetest — Speel de Typetest</title>
-  <link rel="stylesheet" href="styles.css?v=39">
+  <base target="_top">
+  <link rel="stylesheet" href="styles.css?v=40">
 </head>
 
 <body class="iframe-mode">
@@ -875,13 +876,13 @@
               <!-- 6. Actions Block -->
               <div class="result-actions-row">
                 <div class="action-card trial">
-                  <a class="cta-button-flat trial" id="trialButton" href="https://www.typemission.be/proefles/">
+                  <a class="cta-button-flat trial" id="trialButton" href="/proefles/index.html">
                     Speel gratis proefles
                   </a>
                   <span class="action-desc">Ontdek direct hoe de typecursus werkt. Geen account nodig, start direct!</span>
                 </div>
                 <div class="action-card buy">
-                  <a class="cta-button-flat buy" id="buyButton" href="https://www.typemission.be/typecursus-bestellen/">
+                  <a class="cta-button-flat buy" id="buyButton" href="/typecursus-bestellen/index.html">
                     Koop de cursus
                   </a>
                   <span class="action-desc">Krijg direct toegang tot alle 20 weken van het spionnenverhaal en leer blindtypen met 10 vingers.</span>
@@ -894,7 +895,6 @@
                 </div>
               </div>
               
-              <p class="cta-feedback-new" id="ctaFeedback"></p>
             </section>
 
             <!-- Games footer under results -->
@@ -937,33 +937,7 @@
 </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script src="script.js?v=33"></script>
-  <script>
-    // Auto-resize: notify parent iframe container of height changes
-    (function() {
-      var lastHeight = 0;
-      function notifyParent() {
-        var content = document.querySelector('body.iframe-mode .test-section') || document.querySelector('main') || document.body;
-        var h = window.measureIframeContentHeight
-          ? window.measureIframeContentHeight()
-          : Math.ceil(content.getBoundingClientRect().height);
-        if (h !== lastHeight) {
-          lastHeight = h;
-          window.parent.postMessage({ type: 'resize-iframe', height: h }, '*');
-        }
-      }
-      // Use ResizeObserver for reliable tracking of layout changes
-      if (window.ResizeObserver) {
-        new ResizeObserver(notifyParent).observe(document.body);
-      }
-      // Also poll as a fallback for GSAP animations that may not trigger ResizeObserver
-      setInterval(notifyParent, 200);
-      // Initial notification
-      window.addEventListener('load', function() {
-        setTimeout(notifyParent, 100);
-      });
-    })();
-  </script>
+  <script src="script.js?v=34"></script>
 </body>
 
 </html>

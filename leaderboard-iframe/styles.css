@@ -2698,15 +2698,6 @@ body.is-dragging-handle * {
   box-shadow: 0 6px 14px rgba(59, 7, 51, 0.08);
 }
 
-.cta-feedback-new {
-  margin: 0 !important;
-  color: var(--green) !important;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-align: center;
-  min-height: 22px;
-}
-
 .tiny-feedback {
   min-height: 22px;
   margin: 10px 0 0;
@@ -3457,16 +3448,6 @@ body.is-dragging-handle * {
 .reveal:not(.hero-copy).revealed-active {
   opacity: 1;
   transform: translateY(0);
-}
-
-.cta-feedback-new {
-  font-size: 0.88rem;
-  color: var(--green);
-  text-align: center;
-  font-weight: 500;
-  margin: 4px 0 0;
-  line-height: 1.45;
-  min-height: 20px;
 }
 
 /* Tooltip for benchmark chart nodes */

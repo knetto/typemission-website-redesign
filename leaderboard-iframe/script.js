@@ -363,9 +363,6 @@ const completeCoins = document.querySelector("#completeCoins");
 const rankBadge = document.querySelector("#rankBadge");
 const resultTitle = document.querySelector("#resultTitle");
 const resultText = document.querySelector("#resultText");
-const trialButton = document.querySelector("#trialButton");
-const buyButton = document.querySelector("#buyButton");
-const ctaFeedback = document.querySelector("#ctaFeedback");
 const unlockNote = document.querySelector("#unlockNote");
 
 // Live position elements for leaderboard test
@@ -1093,8 +1090,6 @@ function resetTest() {
     resultPanel.hidden = true;
     resultPanel.classList.remove("active");
   }
-
-  if (ctaFeedback) ctaFeedback.textContent = "";
 
   setMissionStep(onboardingComplete ? "ready" : "briefing");
   
