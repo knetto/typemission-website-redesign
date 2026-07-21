@@ -5123,6 +5123,18 @@ body.theme-leaderboard #leaderboardSectionResult {
   border-color: var(--purple);
 }
 
+.leaderboard-form input[aria-invalid="true"] {
+  border-color: #c62828;
+  box-shadow: 0 0 0 3px rgba(198, 40, 40, 0.1);
+}
+
+.name-field-hint {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
 .leaderboard-form button {
   padding: 10px 24px;
   background: var(--purple);

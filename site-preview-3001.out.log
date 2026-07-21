@@ -1,1 +1,2 @@
 Local development server is running at http://localhost:3001
+Request: GET /api/user/personal/all?animeProvider=mal&mangaProvider=anilist

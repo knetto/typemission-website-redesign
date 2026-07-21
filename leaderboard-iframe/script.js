@@ -1470,18 +1470,20 @@ function revealResults() {
     if (typeof resetLeaderboardCollapseStates === "function") resetLeaderboardCollapseStates();
 
     const savedName = getCookie("tm_spy_name");
-    if (savedName) {
+    const savedNameValidation = validateSpyName(savedName);
+    if (savedName && savedNameValidation.valid) {
       const scores = initLeaderboard();
-      const newEntry = { name: savedName, apm: stats.apm, accuracy: stats.accuracy, isDefault: false, timestamp: Date.now() };
+      const newEntry = { name: savedNameValidation.name, apm: stats.apm, accuracy: stats.accuracy, isDefault: false, timestamp: Date.now() };
       const saveResult = savePersonalBest(scores, newEntry);
       const savedScores = saveLeaderboard(saveResult.scores);
 
       syncSpyNameUI();
       showPersonalBestNotice(saveResult, stats);
 
-      const highlightIdx = savedScores.findIndex(entry => normalizeSpyName(entry.name) === normalizeSpyName(savedName));
+      const highlightIdx = savedScores.findIndex(entry => normalizeSpyName(entry.name) === normalizeSpyName(savedNameValidation.name));
       renderLeaderboard(highlightIdx);
     } else {
+      if (savedName) setCookie("tm_spy_name", "", -1);
       syncSpyNameUI();
       hidePersonalBestNotice();
 
@@ -3330,6 +3332,10 @@ function normalizeSpyName(name) {
   return String(name || "").trim().toLocaleLowerCase("nl-BE");
 }
 
+function validateSpyName(name) {
+  return globalThis.TYPEMISSION_NAME_MODERATION.validateName(name);
+}
+
 function isBetterLeaderboardScore(candidate, currentBest) {
   const candidateApm = Number(candidate?.apm) || 0;
   const currentApm = Number(currentBest?.apm) || 0;
@@ -3430,7 +3436,8 @@ function initLeaderboard() {
     scores = JSON.stringify(DEFAULT_LEADERBOARD);
     parsed = JSON.parse(scores);
   }
-  const deduplicated = deduplicateLeaderboardScores(parsed);
+  const allowedEntries = parsed.filter(entry => entry?.isDefault || validateSpyName(entry?.name).valid);
+  const deduplicated = deduplicateLeaderboardScores(allowedEntries);
   if (deduplicated.length !== parsed.length) {
     localStorage.setItem("tm_leaderboard_scores", JSON.stringify(deduplicated));
   }
@@ -3438,7 +3445,8 @@ function initLeaderboard() {
 }
 
 function saveLeaderboard(scores) {
-  const deduplicated = deduplicateLeaderboardScores(scores);
+  const allowedEntries = scores.filter(entry => entry?.isDefault || validateSpyName(entry?.name).valid);
+  const deduplicated = deduplicateLeaderboardScores(allowedEntries);
   localStorage.setItem("tm_leaderboard_scores", JSON.stringify(deduplicated));
   return deduplicated;
 }
@@ -3546,7 +3554,11 @@ function getTrophySvg(rank, suffix) {
   `;}
 
 function syncSpyNameUI() {
-  const savedName = getCookie("tm_spy_name");
+  let savedName = getCookie("tm_spy_name");
+  if (savedName && !validateSpyName(savedName).valid) {
+    setCookie("tm_spy_name", "", -1);
+    savedName = "";
+  }
 
   ["Story", "Play", "Result"].forEach(view => {
     const form = document.querySelector(`#leaderboardForm${view}`);
@@ -3884,8 +3896,29 @@ const leaderboardSubmitBtnResult = document.querySelector("#leaderboardSubmitBtn
 const leaderboardNameInputResult = document.querySelector("#leaderboardNameInputResult");
 
 if (leaderboardSubmitBtnResult && leaderboardNameInputResult) {
+  const showNameError = (feedbackEl, message) => {
+    leaderboardNameInputResult.setAttribute("aria-invalid", "true");
+    if (feedbackEl) {
+      feedbackEl.className = "leaderboard-feedback error";
+      feedbackEl.textContent = message;
+      feedbackEl.style.display = "flex";
+    } else {
+      alert(message);
+    }
+    leaderboardNameInputResult.focus();
+  };
+
+  leaderboardNameInputResult.addEventListener("input", () => {
+    leaderboardNameInputResult.removeAttribute("aria-invalid");
+    const feedbackEl = document.querySelector("#leaderboardFeedbackResult");
+    if (feedbackEl?.classList.contains("error")) {
+      feedbackEl.style.display = "none";
+      feedbackEl.textContent = "";
+    }
+  });
+
   leaderboardSubmitBtnResult.addEventListener("click", () => {
-    const name = leaderboardNameInputResult.value.trim();
+    const validation = validateSpyName(leaderboardNameInputResult.value);
     const feedbackEl = document.querySelector("#leaderboardFeedbackResult");
 
     if (feedbackEl) {
@@ -3893,28 +3926,20 @@ if (leaderboardSubmitBtnResult && leaderboardNameInputResult) {
       feedbackEl.textContent = "";
     }
 
-    if (!name) {
-      if (feedbackEl) {
-        feedbackEl.className = "leaderboard-feedback error";
-        feedbackEl.textContent = "Vul een geldige spionnennaam in!";
-        feedbackEl.style.display = "flex";
-      } else {
-        alert("Vul een spionnennaam in!");
-      }
+    if (!validation.valid) {
+      showNameError(feedbackEl, validation.message);
       return;
     }
+
+    const name = validation.name;
+    leaderboardNameInputResult.value = name;
+    leaderboardNameInputResult.removeAttribute("aria-invalid");
 
     // Check for duplicates
     const scores = initLeaderboard();
     const nameExists = scores.some(entry => normalizeSpyName(entry?.name) === normalizeSpyName(name));
     if (nameExists) {
-      if (feedbackEl) {
-        feedbackEl.className = "leaderboard-feedback error";
-        feedbackEl.textContent = "Deze spionnennaam is al bezet. Kies een unieke naam!";
-        feedbackEl.style.display = "flex";
-      } else {
-        alert("Deze spionnennaam is al bezet. Kies een unieke naam!");
-      }
+      showNameError(feedbackEl, "Deze naam staat al in de ranglijst. Kies een andere spionnennaam.");
       return;
     }
 

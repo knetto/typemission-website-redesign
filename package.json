@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "generate:profanity-data": "node scripts/generate-profanity-data.mjs",
+    "test": "node --test scripts/*.test.cjs"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,9 @@
     "axios": "^1.18.0",
     "cheerio": "^1.2.0",
     "sharp": "^0.35.1"
+  },
+  "devDependencies": {
+    "cuss": "2.2.0",
+    "naughty-words": "1.2.0"
   }
 }
