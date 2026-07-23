@@ -414,7 +414,7 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     min-height: auto !important;
   }
 
-  /* Video Hero Container - Aspect ratio 16:9 widescreen, no crop */
+  /* Video Hero Container - Seamless fit inside border without black bars */
   html body .elementor-51 .elementor-element.elementor-element-ff0187c {
     min-height: unset !important;
     height: auto !important;
@@ -426,7 +426,7 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     overflow: hidden !important;
     box-shadow: 0 6px 20px rgba(59, 7, 51, 0.15) !important;
     border: 2px solid #88a4ec !important;
-    background: #000000 !important;
+    background: #3b0733 !important;
     position: relative !important;
   }
 
@@ -436,14 +436,21 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     left: 0 !important;
     width: 100% !important;
     height: 100% !important;
+    overflow: hidden !important;
   }
 
+  html body .elementor-51 .elementor-element.elementor-element-ff0187c video,
   html body .elementor-51 .elementor-element.elementor-element-ff0187c video.elementor-background-video-hosted {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
+    object-fit: cover !important;
     object-position: center !important;
-    background: #000000 !important;
+    transform: none !important;
+    max-width: none !important;
+    max-height: none !important;
   }
 
   /* Hero Card Container */
@@ -463,19 +470,19 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     box-sizing: border-box !important;
   }
 
-  /* Badge */
+  /* Proefles Text (no pill, blue color) */
   html body .elementor-51 .elementor-element.elementor-element-a0ae750 .elementor-heading-title {
-    display: inline-block !important;
-    background: #88a4ec !important;
-    color: #ffffff !important;
-    padding: 3px 12px !important;
-    border-radius: 12px !important;
+    display: block !important;
+    background: transparent !important;
+    color: #88a4ec !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 11.5px !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.8px !important;
-    margin-bottom: 10px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    text-transform: none !important;
+    letter-spacing: 0.5px !important;
+    margin-bottom: 8px !important;
   }
 
   /* Heading */
@@ -506,10 +513,10 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   /* WhatsApp Share Card */
   html body .tm-share-child-card {
     background: #88a4ec !important;
-    border-radius: 12px !important;
-    padding: 14px 12px !important;
-    margin-bottom: 16px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+    border-radius: 16px !important;
+    padding: 20px 18px !important;
+    margin-bottom: 20px !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16) !important;
     box-sizing: border-box !important;
     color: #ffffff !important;
   }
@@ -517,15 +524,16 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   html body .tm-share-header {
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    margin-bottom: 8px !important;
+    gap: 12px !important;
+    margin-bottom: 12px !important;
   }
 
   html body .tm-share-icon-badge {
-    width: 32px !important;
-    height: 32px !important;
-    border-radius: 6px !important;
-    background: #25D366 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.75) !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -533,57 +541,93 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   }
 
   html body .tm-share-icon-badge svg {
-    fill: #ffffff !important;
-    width: 18px !important;
-    height: 18px !important;
+    fill: none !important;
+    stroke: #ffffff !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   html body .tm-share-title-wrap h3 {
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 13.5px !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     color: #ffffff !important;
-    margin: 0 0 2px 0 !important;
+    margin: 0 0 4px 0 !important;
+    line-height: 1.3 !important;
   }
 
   html body .tm-share-title-wrap p {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 300 !important;
-    color: #ffffff !important;
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.95) !important;
     margin: 0 !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
   }
 
-  html body .tm-share-buttons-grid {
+  html body .tm-share-actions-wrap {
     display: flex !important;
     flex-direction: column !important;
-    gap: 6px !important;
-    margin-top: 10px !important;
-  }
-
-  @media (min-width: 480px) {
-    html body .tm-share-buttons-grid {
-      flex-direction: row !important;
-    }
+    gap: 10px !important;
+    margin-top: 14px !important;
   }
 
   html body .tm-whatsapp-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 6px !important;
+    gap: 8px !important;
     background: #25D366 !important;
     color: #ffffff !important;
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 12.5px !important;
-    font-weight: 600 !important;
-    padding: 8px 12px !important;
-    height: 36px !important;
-    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    padding: 10px 16px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
     text-decoration: none !important;
     border: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 3px 10px rgba(37, 211, 102, 0.35) !important;
+    transition: all 0.2s ease !important;
+  }
+
+  html body .tm-whatsapp-btn:hover {
+    background: #20bd5a !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 5px 14px rgba(37, 211, 102, 0.45) !important;
+  }
+
+  html body .tm-share-secondary-row {
+    display: flex !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  html body .tm-quickshare-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: #ffffff !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.75) !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    padding: 8px 12px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
     flex: 1 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+  }
+
+  html body .tm-quickshare-btn:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
   }
 
   html body .tm-copy-btn {
@@ -591,38 +635,45 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    background: transparent !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     color: #ffffff !important;
-    border: 1.5px solid #ffffff !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.75) !important;
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 600 !important;
-    padding: 7px 12px !important;
-    height: 36px !important;
-    border-radius: 6px !important;
-    cursor: pointer !important;
+    font-size: 12.5px !important;
+    font-weight: 700 !important;
+    padding: 8px 12px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
     flex: 1 !important;
+    cursor: pointer !important;
+    white-space: nowrap !important;
+    transition: all 0.2s ease !important;
+  }
+
+  html body .tm-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.22) !important;
   }
 
   /* Form Container */
   html body .elementor-51 .elementor-element.elementor-element-2407457 {
-    background: rgba(0, 0, 0, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 10px !important;
-    padding: 14px 12px !important;
-    margin-top: 4px !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    border-radius: 16px !important;
+    padding: 20px 18px !important;
+    margin-top: 8px !important;
     box-sizing: border-box !important;
   }
 
   html body .tm-form-title-badge {
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 13px !important;
+    font-size: 15.5px !important;
     font-weight: 700 !important;
     color: #ffffff !important;
-    margin-bottom: 10px !important;
+    margin-bottom: 14px !important;
     display: flex !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 10px !important;
   }
 
   /* Hide empty recaptcha placeholder */
@@ -634,7 +685,7 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-form-fields-wrapper {
     display: flex !important;
     flex-direction: column !important;
-    gap: 8px !important;
+    gap: 12px !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -646,19 +697,19 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     box-sizing: border-box !important;
   }
 
-  /* Sleek Compact Inputs (Height: 38px, Border Radius: 6px) */
+  /* Inputs (Height: 44px, Border Radius: 8px) */
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-field-group input.elementor-field,
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-field-group input.elementor-field-textual,
   html body .elementor-51 .elementor-element.elementor-element-2407457 input[type="text"],
   html body .elementor-51 .elementor-element.elementor-element-2407457 input[type="email"] {
     width: 100% !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
-    line-height: 38px !important;
-    border-radius: 6px !important;
-    padding: 0 12px !important;
-    font-size: 13.5px !important;
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+    line-height: 44px !important;
+    border-radius: 8px !important;
+    padding: 0 14px !important;
+    font-size: 14.5px !important;
     font-family: 'Roboto', sans-serif !important;
     background-color: #ffffff !important;
     border: 1px solid #cbd5e1 !important;
@@ -670,13 +721,13 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-field-group input:focus {
     border-color: #e48e35 !important;
     outline: none !important;
-    box-shadow: 0 0 0 2px rgba(228, 142, 53, 0.25) !important;
+    box-shadow: 0 0 0 3px rgba(228, 142, 53, 0.25) !important;
   }
 
   /* Checkbox Option */
   html body .elementor-field-type-acceptance {
     width: 100% !important;
-    margin: 2px 0 !important;
+    margin: 4px 0 !important;
     padding: 0 !important;
   }
 
@@ -690,7 +741,7 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   html body .elementor-field-type-acceptance .elementor-field-option {
     display: flex !important;
     align-items: flex-start !important;
-    gap: 8px !important;
+    gap: 10px !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -700,17 +751,17 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
   html body .elementor-field-type-acceptance .elementor-acceptance-field {
     appearance: checkbox !important;
     -webkit-appearance: checkbox !important;
-    width: 15px !important;
-    max-width: 15px !important;
-    min-width: 15px !important;
-    height: 15px !important;
-    max-height: 15px !important;
-    min-height: 15px !important;
-    margin: 2px 0 0 0 !important;
+    width: 18px !important;
+    max-width: 18px !important;
+    min-width: 18px !important;
+    height: 18px !important;
+    max-height: 18px !important;
+    min-height: 18px !important;
+    margin: 1px 0 0 0 !important;
     padding: 0 !important;
     background-color: transparent !important;
     background-image: none !important;
-    border-radius: 3px !important;
+    border-radius: 4px !important;
     border: 1px solid #cbd5e1 !important;
     flex-shrink: 0 !important;
     cursor: pointer !important;
@@ -720,8 +771,8 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
 
   html body .elementor-field-type-acceptance label {
     font-family: 'Roboto', sans-serif !important;
-    font-size: 12.5px !important;
-    line-height: 1.35 !important;
+    font-size: 13.5px !important;
+    line-height: 1.4 !important;
     color: #ffffff !important;
     font-weight: 300 !important;
     margin: 0 !important;
@@ -732,34 +783,34 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     word-break: break-word !important;
   }
 
-  /* Sleek Compact Submit Button (Height: 38px, Border Radius: 6px) */
+  /* Submit Button (Height: 46px, Border Radius: 8px) */
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-field-type-submit {
     width: 100% !important;
-    margin-top: 2px !important;
+    margin-top: 4px !important;
   }
 
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-button,
   html body .elementor-51 .elementor-element.elementor-element-2407457 button.elementor-button,
   html body .elementor-51 .elementor-element.elementor-element-2407457 .elementor-button[type=submit] {
     width: 100% !important;
-    height: 38px !important;
-    min-height: 38px !important;
-    max-height: 38px !important;
-    line-height: 38px !important;
+    height: 46px !important;
+    min-height: 46px !important;
+    max-height: 46px !important;
+    line-height: 46px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     background-color: #e48e35 !important;
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     font-family: 'Orbitron', sans-serif !important;
-    font-size: 13.5px !important;
+    font-size: 15px !important;
     font-weight: 700 !important;
-    letter-spacing: 0.5px !important;
+    letter-spacing: 0.8px !important;
     text-transform: uppercase !important;
     color: #ffffff !important;
     border: none !important;
-    padding: 0 12px !important;
-    box-shadow: 0 2px 8px rgba(228, 142, 53, 0.35) !important;
+    padding: 0 16px !important;
+    box-shadow: 0 3px 10px rgba(228, 142, 53, 0.4) !important;
     transition: all 0.2s ease !important;
     cursor: pointer !important;
   }
@@ -768,12 +819,189 @@ gtag('js',new Date());gtag('config','G-QEL80QR8V7');</script>  <script>(function
     background-color: #f5b05f !important;
   }
 
-  /* Footnote text below form */
-  html body .elementor-51 .elementor-element.elementor-element-c5acc52 {
-    font-size: 11px !important;
-    line-height: 1.4 !important;
-    color: rgba(255, 255, 255, 0.75) !important;
+  /* Privacy Trust Note inside email form box */
+  html body .tm-privacy-trust-note {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 11.5px !important;
+    color: rgba(255, 255, 255, 0.65) !important;
     margin-top: 10px !important;
+    padding: 0 2px !important;
+  }
+
+  html body .tm-privacy-trust-note strong {
+    color: #88a4ec !important;
+    font-weight: 600 !important;
+  }
+
+  html body .tm-privacy-trust-note svg {
+    stroke: #88a4ec !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Spam Notice inside email form box */
+  html body .tm-spam-notice {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 11px !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    margin-top: 6px !important;
+    padding: 0 2px !important;
+  }
+
+  html body .tm-spam-notice svg {
+    stroke: rgba(255, 255, 255, 0.65) !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Desktop Notice Card separated below form box */
+  html body .elementor-51 .elementor-element.elementor-element-c5acc52 {
+    margin-top: 18px !important;
+  }
+
+  html body .tm-desktop-notice-card {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+  }
+
+  html body .tm-desktop-notice-content {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 12.5px !important;
+    line-height: 1.3 !important;
+  }
+
+  html body .tm-notice-icon {
+    stroke: #88a4ec !important;
+    flex-shrink: 0 !important;
+  }
+
+  html body .tm-desktop-notice-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    background: #88a4ec !important;
+    color: #ffffff !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 8px 12px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+    transition: background 0.2s ease !important;
+    box-shadow: none !important;
+  }
+
+  html body .tm-desktop-notice-btn:hover {
+    background: #7693e2 !important;
+  }
+
+  /* Direct Order Card ("Geen proefles nodig?") */
+  html body .tm-direct-order-card {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border-radius: 14px !important;
+    padding: 16px 16px !important;
+    margin-top: 14px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    box-shadow: none !important;
+  }
+
+  html body .tm-order-header h3 {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 4px 0 4px 0 !important;
+  }
+
+  html body .tm-order-header p {
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  html body .tm-order-badge {
+    display: inline-block !important;
+    background: rgba(228, 142, 53, 0.2) !important;
+    color: #f5b05f !important;
+    border: none !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+  }
+
+  html body .tm-direct-order-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: #e48e35 !important;
+    color: #ffffff !important;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    padding: 10px 16px !important;
+    height: 44px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    transition: background 0.2s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  html body .tm-direct-order-btn:hover {
+    background: #d37d25 !important;
+  }
+
+  html body .tm-guarantee-note {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: 11.5px !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  /* Reduce gap between top purple section and video section */
+  html body .elementor-51 .elementor-element.elementor-element-3fa2f6f {
+    padding-bottom: 20px !important;
+  }
+
+  /* Hide bottom duplicate video section on mobile */
+  html body .elementor-51 .elementor-element.elementor-element-8d2b9a9 {
+    display: none !important;
+  }
+
+  html body .elementor-51 .elementor-element.elementor-element-dc92d87 {
+    display: none !important;
   }
 }
 </style>
@@ -788,17 +1016,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="tm-share-child-card">
   <div class="tm-share-header">
     <div class="tm-share-icon-badge">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.553 4.11 1.519 5.84L0 24l6.337-1.5c1.671.895 3.58 1.5 5.663 1.5 6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.849 0-3.579-.497-5.078-1.366l-.364-.21-3.774.894.912-3.682-.232-.37C2.569 15.744 2 13.931 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
       </svg>
     </div>
     <div class="tm-share-title-wrap">
-      <h3>Stuur proefles naar je kind</h3>
-      <p>Stuur een bericht via WhatsApp zodat je kind direct kan spelen op de computer!</p>
+      <h3>Stuur proefles naar jezelf of uw kind</h3>
+      <p>Stuur de link door om later te spelen op de computer of laptop!</p>
     </div>
   </div>
-  <div class="tm-share-buttons-grid">
+  <div class="tm-share-actions-wrap">
     <a href="https://api.whatsapp.com/send?text=Hoi!%20Speel%20hier%20de%20gratis%20TypeMission%20proefles%20op%20de%20computer:%20https://www.typemission.be/proefles/" target="_blank" class="tm-whatsapp-btn">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347z"/>
@@ -806,13 +1034,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </svg>
       <span>Stuur via WhatsApp</span>
     </a>
-    <button type="button" class="tm-copy-btn" onclick="copyProeflesLink(this)">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-      </svg>
-      <span class="tm-copy-text">Kopieer link</span>
-    </button>
+    <div class="tm-share-secondary-row">
+      <button type="button" class="tm-quickshare-btn" onclick="triggerQuickShare()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+          <polyline points="16 6 12 2 8 6"></polyline>
+          <line x1="12" y1="2" x2="12" y2="15"></line>
+        </svg>
+        <span>Andere app</span>
+      </button>
+      <button type="button" class="tm-copy-btn" onclick="copyProeflesLink(this)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <span class="tm-copy-text">Kopieer link</span>
+      </button>
+    </div>
   </div>
 </div>
 
@@ -823,13 +1061,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <polyline points="22,6 12,13 2,6"></polyline>
     </svg>
     <span>Herinnering via e-mail ontvangen</span>
-  </div> <input type="hidden" name="post_id" value="51"> <input type="hidden" name="form_id" value="2407457"> <input type="hidden" name="referer_title" value="Proefles - TypeMission"> <input type="hidden" name="queried_id" value="51"><div class="elementor-form-fields-wrapper elementor-labels-"><div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_af4691f elementor-col-100 recaptcha_v3-bottomright"><div class="elementor-field" id="form-field-field_af4691f"><div class="elementor-g-recaptcha" data-sitekey="6Ld5gJcoAAAAAGLgL1hwbIGeDkqlfFfBjNLfu6on" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div></div><div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100 elementor-field-required"> <label for="form-field-name" class="elementor-field-label elementor-screen-only"> Naam </label> <input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-field-textual" placeholder="Naam" required="required"></div><div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required"> <label for="form-field-email" class="elementor-field-label elementor-screen-only"> Email </label> <input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-field-textual" placeholder="Email" required="required"></div><div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-Field_acceptance elementor-col-100 elementor-field-required"> <label for="form-field-Field_acceptance" class="elementor-field-label elementor-screen-only"> Toestemming </label><div class="elementor-field-subgroup"> <span class="elementor-field-option"> <input type="checkbox" name="form_fields[Field_acceptance]" id="form-field-Field_acceptance" class="elementor-field elementor-size-md  elementor-acceptance-field" required="required"> <label for="form-field-Field_acceptance">Ik geef TypeMission toestemming om mij emails te sturen</label> </span></div></div><div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-33 e-form__buttons"> <button class="elementor-button elementor-size-md" type="submit"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-text">Versturen</span> </span> </button></div></div></form></div></div><div class="elementor-element elementor-element-11ff633 elementor-widget elementor-widget-html" data-id="11ff633" data-element_type="widget" data-e-type="widget" data-widget_type="html.default"><div class="elementor-widget-container"><div class="klaviyo-form-Uw8Cj5"></div></div></div><div class="elementor-element elementor-element-c5acc52 elementor-widget elementor-widget-text-editor" data-id="c5acc52" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"> * Krijgt u dit bericht, maar zit u toch op een computer? Vergroot dan uw venster.<br>** Uw herinnering kan soms in uw spam folder komen.</div></div></div></div></div></div></div><div class="elementor-element elementor-element-8d2b9a9 elementor-hidden-desktop e-flex e-con-boxed e-con e-parent" data-id="8d2b9a9" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-dc92d87 elementor-widget elementor-widget-spacer" data-id="dc92d87" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div><div class="elementor-element elementor-element-fe6dd75 e-flex e-con-boxed e-con e-child" data-id="fe6dd75" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-f8ae85b e-con-full e-flex e-con e-child" data-id="f8ae85b" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-52664aa elementor-widget elementor-widget-heading" data-id="52664aa" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">De video</h4></div></div><div class="elementor-element elementor-element-f77d08b elementor-widget elementor-widget-heading" data-id="f77d08b" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h2 class="elementor-heading-title elementor-size-default">Bekijk hoe TypeMission werkt</h2></div></div><div class="elementor-element elementor-element-d49c50e elementor-widget elementor-widget-video" data-id="d49c50e" data-element_type="widget" data-e-type="widget" data-settings="{&quot;youtube_url&quot;:&quot;https:\/\/youtu.be\/p8eYm51pvnk&quot;,&quot;video_type&quot;:&quot;youtube&quot;,&quot;controls&quot;:&quot;yes&quot;}" data-widget_type="video.default"><div class="elementor-widget-container"><div class="elementor-wrapper elementor-open-inline"><div class="elementor-video"></div></div></div></div><div class="elementor-element elementor-element-147a766 elementor-absolute e-transform elementor-widget elementor-widget-image" data-id="147a766" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;,&quot;_transform_rotateZ_effect&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:13,&quot;sizes&quot;:[]},&quot;_transform_rotateZ_effect_tablet&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]},&quot;_transform_rotateZ_effect_mobile&quot;:{&quot;unit&quot;:&quot;deg&quot;,&quot;size&quot;:&quot;&quot;,&quot;sizes&quot;:[]}}" data-widget_type="image.default"><div class="elementor-widget-container"> <noscript><img decoding="async" width="503" height="700" src="https://www.typemission.be/wp-content/uploads/2023/05/Asset-7-1.png" class="attachment-2048x2048 size-2048x2048 wp-image-577" alt="" srcset="https://www.typemission.be/wp-content/uploads/2023/05/Asset-7-1.png 503w, https://www.typemission.be/wp-content/uploads/2023/05/Asset-7-1-216x300.png 216w" sizes="(max-width: 503px) 100vw, 503px" /></noscript><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20503%20700%22%3E%3C/svg%3E" decoding="async" width="503" height="700" data-src="/wp-content/uploads/2023/05/Asset-7-1.png" class="lazyload attachment-2048x2048 size-2048x2048 wp-image-577" alt="" data-srcset="/wp-content/uploads/2023/05/Asset-7-1.png 503w, /wp-content/uploads/2023/05/Asset-7-1-216x300.png 216w" data-sizes="(max-width: 503px) 100vw, 503px"></div></div><div class="elementor-element elementor-element-0cfafe1 elementor-widget elementor-widget-spacer" data-id="0cfafe1" data-element_type="widget" data-e-type="widget" data-widget_type="spacer.default"><div class="elementor-widget-container"><div class="elementor-spacer"><div class="elementor-spacer-inner"></div></div></div></div></div></div></div></div></div></div><footer data-elementor-type="footer" data-elementor-id="493" class="elementor elementor-493 elementor-location-footer" data-elementor-post-type="elementor_library"><div class="elementor-element elementor-element-1954f427 e-flex e-con-boxed e-con e-parent" data-id="1954f427" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-11d641c e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-id="11d641c" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-29a65f50 elementor-widget elementor-widget-image" data-id="29a65f50" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container"> <noscript><img width="864" height="361" src="https://www.typemission.be/wp-content/uploads/2023/04/TM-logo.webp" class="attachment-2048x2048 size-2048x2048 wp-image-2404" alt="TypeMission Logo transparant" srcset="https://www.typemission.be/wp-content/uploads/2023/04/TM-logo.webp 864w, https://www.typemission.be/wp-content/uploads/2023/04/TM-logo-300x125.webp 300w, https://www.typemission.be/wp-content/uploads/2023/04/TM-logo-768x321.webp 768w" sizes="(max-width: 864px) 100vw, 864px" /></noscript><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20864%20361%22%3E%3C/svg%3E" width="864" height="361" data-src="/wp-content/uploads/2023/04/TM-logo.webp" class="lazyload attachment-2048x2048 size-2048x2048 wp-image-2404" alt="TypeMission Logo transparant" data-srcset="/wp-content/uploads/2023/04/TM-logo.webp 864w, /wp-content/uploads/2023/04/TM-logo-300x125.webp 300w, /wp-content/uploads/2023/04/TM-logo-768x321.webp 768w" data-sizes="(max-width: 864px) 100vw, 864px"></div></div><div class="elementor-element elementor-element-29decfe5 elementor-widget elementor-widget-text-editor" data-id="29decfe5" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p>Leer typen als een superspion!</p></div></div><div class="elementor-element elementor-element-5660c47 elementor-shape-circle e-grid-align-left elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="5660c47" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default"><div class="elementor-widget-container"><div class="elementor-social-icons-wrapper elementor-grid" role="list"> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-605f0b7" href="https://www.facebook.com/people/TypeMission/100091983263999/" target="_blank"> <span class="elementor-screen-only">Facebook</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg> </a> </span> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-repeater-item-aa8aff3" href="https://www.instagram.com/typemission.be/" target="_blank"> <span class="elementor-screen-only">Instagram</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a> </span> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-repeater-item-eabbf04" href="https://www.youtube.com/channel/UCia3KoYqdZo0ZWfxmq20rZA" target="_blank"> <span class="elementor-screen-only">Youtube</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg> </a> </span> <span class="elementor-grid-item" role="listitem"> <a
-                    class="elementor-icon elementor-social-icon elementor-social-icon-linkedin elementor-repeater-item-tm-linkedin"
-                    href="https://www.linkedin.com/company/typemission/posts/?feedView=all" target="_blank"
-                    rel="noopener noreferrer"> <span class="elementor-screen-only">LinkedIn</span> <svg aria-hidden="true"
-                      class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M100.28 448H7.4V148.9h92.88zm-46.49-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 107.2 53.6c0 29.6-24.1 53.7-53.41 53.7zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z">
+  </div> <input type="hidden" name="post_id" value="51"> <input type="hidden" name="form_id" value="2407457"> <input type="hidden" name="referer_title" value="Proefles - TypeMission"> <input type="hidden" name="queried_id" value="51"><div class="elementor-form-fields-wrapper elementor-labels-"><div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_af4691f elementor-col-100 recaptcha_v3-bottomright"><div class="elementor-field" id="form-field-field_af4691f"><div class="elementor-g-recaptcha" data-sitekey="6Ld5gJcoAAAAAGLgL1hwbIGeDkqlfFfBjNLfu6on" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div></div><div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required"> <label for="form-field-email" class="elementor-field-label elementor-screen-only"> Email </label> <input size="1" type="email" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-field-textual" placeholder="Vul uw e-mailadres in" required="required"></div><div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-33 e-form__buttons"> <button class="elementor-button elementor-size-md" type="submit"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-text">Versturen</span> </span> </button></div></div></form><div class="tm-privacy-trust-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#88a4ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg><span>We sturen enkel de proefles-herinnering en geen marketing e-mails.</span></div><div class="tm-spam-notice"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg><span>Uw herinnering kan soms in uw spamfolder terechtkomen.</span></div></div></div><div class="elementor-element elementor-element-11ff633 elementor-widget elementor-widget-html" data-id="11ff633" data-element_type="widget" data-e-type="widget" data-widget_type="html.default"><div class="elementor-widget-container"><div class="klaviyo-form-Uw8Cj5"></div></div></div><div class="elementor-element elementor-element-c5acc52 elementor-widget elementor-widget-text-editor" data-id="c5acc52" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container">
+  <div class="tm-desktop-notice-card">
+    <div class="tm-desktop-notice-content">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#88a4ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="tm-notice-icon">
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="12" y1="17" x2="12" y2="21"></line>
+      </svg>
+      <span>Zit u toch op een computer?</span>
+    </div>
+    <a href="https://proefles.typemission.com/" target="_blank" class="tm-desktop-notice-btn">
+      Ga door naar de proefles &rarr;
+    </a>
+  </div>
+
+  <div class="tm-direct-order-card">
+    <div class="tm-order-header">
+      <div class="tm-order-badge">🔥 €20,- korting</div>
+      <h3>Geen proefles nodig?</h3>
+      <p>Bestel direct met €20,- korting en laat uw kind vanavond nog starten op de pc.</p>
+    </div>
+    <a href="/typecursus-bestellen/index.html" class="tm-direct-order-btn">
+      <span>Direct Bestellen met Korting</span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+    <div class="tm-guarantee-note">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        <polyline points="9 11 12 14 22 4"></polyline>
+      </svg>
+      <span>Met 14 dagen niet-goed-geld-terug garantie</span>
+    </div>
+  </div>
+</div></div>
                       </path>
                     </svg> </a> </span></div></div></div></div><div class="elementor-element elementor-element-653cc3fb e-con-full e-flex e-con e-child" data-id="653cc3fb" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-7c89dd1c elementor-widget elementor-widget-heading" data-id="7c89dd1c" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Menu</h4></div></div><div class="elementor-element elementor-element-6cd0619c elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="6cd0619c" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-6cd0619c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1300"><a href="/index.html" class="elementor-item">Home</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4742"><a href="/typecursus-voor-scholen/index.html" class="elementor-item">Voor scholen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1279"><a href="/hoe-werkt-het/index.html" class="elementor-item">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1277"><a href="/over-ons/index.html" class="elementor-item">Over ons</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-51 current_page_item menu-item-1281"><a href="/proefles/index.html" aria-current="page" class="elementor-item elementor-item-active">Proefles</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2143"><a href="/blog/index.html" class="elementor-item">Blogs</a></li></ul></nav><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-6cd0619c" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1300"><a href="/index.html" class="elementor-item" tabindex="-1">Home</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4742"><a href="/typecursus-voor-scholen/index.html" class="elementor-item" tabindex="-1">Voor scholen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1279"><a href="/hoe-werkt-het/index.html" class="elementor-item" tabindex="-1">Hoe werkt het?</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1277"><a href="/over-ons/index.html" class="elementor-item" tabindex="-1">Over ons</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-51 current_page_item menu-item-1281"><a href="/proefles/index.html" aria-current="page" class="elementor-item elementor-item-active" tabindex="-1">Proefles</a></li><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2143"><a href="/blog/index.html" class="elementor-item" tabindex="-1">Blogs</a></li></ul></nav></div></div></div><div class="elementor-element elementor-element-55ad7d03 e-con-full e-flex e-con e-child" data-id="55ad7d03" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-23363e0 elementor-widget elementor-widget-heading" data-id="23363e0" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Contact</h4></div></div><div class="elementor-element elementor-element-a684995 elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="a684995" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-a684995" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="/contact/index.html" class="elementor-item">Contact</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="/faq/index.html" class="elementor-item">Veelgestelde vragen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2006"><a rel="privacy-policy" href="/privacy-verklaring/index.html" class="elementor-item">Privacy verklaring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="/disclaimer/index.html" class="elementor-item">Disclaimer</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2278"><a href="/algemene-voorwaarden/index.html" class="elementor-item">Algemene voorwaarden</a></li></ul></nav><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-a684995" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="/contact/index.html" class="elementor-item" tabindex="-1">Contact</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="/faq/index.html" class="elementor-item" tabindex="-1">Veelgestelde vragen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2006"><a rel="privacy-policy" href="/privacy-verklaring/index.html" class="elementor-item" tabindex="-1">Privacy verklaring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="/disclaimer/index.html" class="elementor-item" tabindex="-1">Disclaimer</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2278"><a href="/algemene-voorwaarden/index.html" class="elementor-item" tabindex="-1">Algemene voorwaarden</a></li></ul></nav></div></div></div><div class="elementor-element elementor-element-4ab683ab e-con-full e-flex e-con e-child" data-id="4ab683ab" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-25ad48b1 elementor-widget elementor-widget-heading" data-id="25ad48b1" data-element_type="widget" data-e-type="widget" data-widget_type="heading.default"><div class="elementor-widget-container"><h4 class="elementor-heading-title elementor-size-default">Bestel TypeMission</h4></div></div><div class="elementor-element elementor-element-292fe578 elementor-widget elementor-widget-text-editor" data-id="292fe578" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p>Schrijf je in en leer op een spannende en leuke manier blind typen!</p></div></div><div class="elementor-element elementor-element-553370f elementor-tablet-align-center elementor-widget elementor-widget-button" data-id="553370f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-sm" href="/typecursus-bestellen/index.html"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-text">Bestellen</span> </span> </a></div></div></div></div></div></div><div class="elementor-element elementor-element-4b9e5a7a e-flex e-con-boxed e-con e-parent" data-id="4b9e5a7a" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-2bea66c7 elementor-widget elementor-widget-text-editor" data-id="2bea66c7" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default"><div class="elementor-widget-container"><p>© 2026 TypeMission. Alle rechten voorbehouden.</p></div></div><div class="elementor-element elementor-element-15dfa903 e-grid-align-right e-grid-align-mobile-center elementor-hidden-desktop elementor-shape-rounded elementor-grid-0 elementor-widget elementor-widget-social-icons" data-id="15dfa903" data-element_type="widget" data-e-type="widget" data-widget_type="social-icons.default"><div class="elementor-widget-container"><div class="elementor-social-icons-wrapper elementor-grid" role="list"> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-animation-push elementor-repeater-item-ffd0285" href="https://www.facebook.com/profile.php?id=100091983263999" target="_blank"> <span class="elementor-screen-only">Facebook</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-facebook" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg> </a> </span> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-instagram elementor-animation-push elementor-repeater-item-ee5d380" href="https://www.instagram.com/typemission.be/" target="_blank"> <span class="elementor-screen-only">Instagram</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a> </span> <span class="elementor-grid-item" role="listitem"> <a class="elementor-icon elementor-social-icon elementor-social-icon-youtube elementor-animation-push elementor-repeater-item-c72d716" href="https://www.youtube.com/channel/UCia3KoYqdZo0ZWfxmq20rZA" target="_blank"> <span class="elementor-screen-only">Youtube</span> <svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube" viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg> </a> </span></div></div></div></div></div></footer> <script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/hello-elementor/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}</script> <div data-elementor-type="popup" data-elementor-id="2458" class="elementor elementor-2458 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;fadeInRight&quot;,&quot;entrance_animation_mobile&quot;:&quot;slideInRight&quot;,&quot;exit_animation&quot;:&quot;fadeInRight&quot;,&quot;exit_animation_mobile&quot;:&quot;slideInRight&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:&quot;0.3&quot;,&quot;sizes&quot;:[]},&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;avoid_multiple_popups&quot;:&quot;yes&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library"><section class="elementor-section elementor-top-section elementor-element elementor-element-1cb82c34 elementor-section-height-min-height elementor-section-items-top elementor-section-content-middle elementor-section-full_width elementor-section-height-default" data-id="1cb82c34" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-container elementor-column-gap-no"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-468796ce" data-id="468796ce" data-element_type="column" data-e-type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-2193ceb2 elementor-view-stacked elementor-shape-square elementor-widget elementor-widget-icon" data-id="2193ceb2" data-element_type="widget" data-e-type="widget" data-widget_type="icon.default"><div class="elementor-widget-container"><div class="elementor-icon-wrapper"> <a class="elementor-icon" href="#elementor-action%3Aaction%3Dpopup%3Aclose%26settings%3DeyJkb19ub3Rfc2hvd19hZ2FpbiI6IiJ9"> <svg xmlns="http://www.w3.org/2000/svg" id="a3764f6b-d60e-4c82-b635-15a2a285578b" data-name="Layer 1" width="19.373" height="18.4536" viewBox="0 0 19.373 18.4536"><polygon points="19.373 1.454 18 0 9.687 7.852 1.373 0 0 1.454 8.23 9.227 0 17 1.373 18.454 9.687 10.602 18 18.454 19.373 17 11.143 9.227 19.373 1.454"></polygon></svg> </a></div></div></div><div class="elementor-element elementor-element-6fa2ca4 elementor-widget elementor-widget-nav-menu" data-id="6fa2ca4" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;dropdown&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-6fa2ca4" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="/contact/index.html" class="elementor-item" tabindex="-1">Contact</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="/faq/index.html" class="elementor-item" tabindex="-1">Veelgestelde vragen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2006"><a rel="privacy-policy" href="/privacy-verklaring/index.html" class="elementor-item" tabindex="-1">Privacy verklaring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="/disclaimer/index.html" class="elementor-item" tabindex="-1">Disclaimer</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2278"><a href="/algemene-voorwaarden/index.html" class="elementor-item" tabindex="-1">Algemene voorwaarden</a></li></ul></nav></div></div></div></div></div></section><section class="elementor-section elementor-top-section elementor-element elementor-element-46ec61d elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="46ec61d" data-element_type="section" data-e-type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;,&quot;sticky&quot;:&quot;bottom&quot;,&quot;sticky_on&quot;:[&quot;desktop&quot;,&quot;tablet&quot;,&quot;mobile&quot;],&quot;sticky_offset&quot;:0,&quot;sticky_effects_offset&quot;:0,&quot;sticky_anchor_link_offset&quot;:0}"><div class="elementor-container elementor-column-gap-default"><div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-29ffb4b8" data-id="29ffb4b8" data-element_type="column" data-e-type="column"><div class="elementor-widget-wrap elementor-element-populated"><div class="elementor-element elementor-element-3173f452 elementor-view-default elementor-widget elementor-widget-icon" data-id="3173f452" data-element_type="widget" data-e-type="widget" data-settings="{&quot;_animation_mobile&quot;:&quot;fadeIn&quot;}" data-widget_type="icon.default"><div class="elementor-widget-container"><div class="elementor-icon-wrapper"> <a class="elementor-icon" href="https://www.instagram.com/jarahsimons/?hl=en"> <svg aria-hidden="true" class="e-font-icon-svg e-fab-instagram" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg> </a></div></div></div></div></div></div></section></div><div data-elementor-type="popup" data-elementor-id="1594" class="elementor elementor-1594 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;slideInRight&quot;,&quot;exit_animation&quot;:&quot;slideInRight&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.3,&quot;sizes&quot;:[]},&quot;avoid_multiple_popups&quot;:&quot;yes&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library"><div class="elementor-element elementor-element-1de0bda9 e-con-full e-flex e-con e-parent" data-id="1de0bda9" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="elementor-element elementor-element-2e1e06c2 e-con-full e-flex e-con e-child" data-id="2e1e06c2" data-element_type="container" data-e-type="container"><div class="elementor-element elementor-element-65439a9d e-flex e-con-boxed e-con e-child" data-id="65439a9d" data-element_type="container" data-e-type="container"><div class="e-con-inner"><div class="elementor-element elementor-element-8c004f8 e-flex e-con-boxed e-con e-child" data-id="8c004f8" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-880f49f elementor-widget elementor-widget-image" data-id="880f49f" data-element_type="widget" data-e-type="widget" data-widget_type="image.default"><div class="elementor-widget-container"> <a href="http://typemission.com"> <noscript><img width="150" height="150" src="https://www.typemission.be/wp-content/uploads/2023/04/TM-favicon-150x150.png" class="attachment-thumbnail size-thumbnail wp-image-1257" alt="" srcset="https://www.typemission.be/wp-content/uploads/2023/04/TM-favicon-150x150.png 150w, https://www.typemission.be/wp-content/uploads/2023/04/TM-favicon-300x300.png 300w, https://www.typemission.be/wp-content/uploads/2023/04/TM-favicon.png 512w" sizes="(max-width: 150px) 100vw, 150px" /></noscript><img src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20150%20150%22%3E%3C/svg%3E" width="150" height="150" data-src="/wp-content/uploads/2023/04/TM-favicon-150x150.png" class="lazyload attachment-thumbnail size-thumbnail wp-image-1257" alt="" data-srcset="/wp-content/uploads/2023/04/TM-favicon-150x150.png 150w, /wp-content/uploads/2023/04/TM-favicon-300x300.png 300w, /wp-content/uploads/2023/04/TM-favicon.png 512w" data-sizes="(max-width: 150px) 100vw, 150px"> </a></div></div></div></div><div class="elementor-element elementor-element-91e23a3 elementor-nav-menu__align-end elementor-nav-menu--dropdown-none elementor-widget elementor-widget-nav-menu" data-id="91e23a3" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-91e23a3" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5014"><a href="/hoe-werkt-het/index.html" class="elementor-item">Hoe het werkt</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a href="/typecursus-voor-scholen/index.html" class="elementor-item">TypeMission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5013"><a href="/typecursus-bestellen/index.html" class="elementor-item">Kosten</a></li></ul></nav><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-91e23a3" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5014"><a href="/hoe-werkt-het/index.html" class="elementor-item" tabindex="-1">Hoe het werkt</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5015"><a href="/typecursus-voor-scholen/index.html" class="elementor-item" tabindex="-1">TypeMission op school</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5013"><a href="/typecursus-bestellen/index.html" class="elementor-item" tabindex="-1">Kosten</a></li></ul></nav></div></div><div class="elementor-element elementor-element-871113f elementor-widget elementor-widget-button" data-id="871113f" data-element_type="widget" data-e-type="widget" data-widget_type="button.default"><div class="elementor-widget-container"><div class="elementor-button-wrapper"> <a class="elementor-button elementor-button-link elementor-size-sm" href="/aanmelden/index.html"> <span class="elementor-button-content-wrapper"> <span class="elementor-button-text">Bestellen</span> </span> </a></div></div></div></div></div></div><div class="elementor-element elementor-element-64ba5d49 e-flex e-con-boxed e-con e-child" data-id="64ba5d49" data-element_type="container" data-e-type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}"><div class="e-con-inner"><div class="elementor-element elementor-element-4ab466fe elementor-nav-menu--dropdown-none elementor-nav-menu__align-end elementor-widget elementor-widget-nav-menu" data-id="4ab466fe" data-element_type="widget" data-e-type="widget" data-settings="{&quot;layout&quot;:&quot;vertical&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;<svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;><path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;><\/path><\/svg>&quot;,&quot;library&quot;:&quot;fa-solid&quot;}}" data-widget_type="nav-menu.default"><div class="elementor-widget-container"><nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-vertical e--pointer-none"><ul id="menu-1-4ab466fe" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="/contact/index.html" class="elementor-item">Contact</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="/faq/index.html" class="elementor-item">Veelgestelde vragen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2006"><a rel="privacy-policy" href="/privacy-verklaring/index.html" class="elementor-item">Privacy verklaring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="/disclaimer/index.html" class="elementor-item">Disclaimer</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2278"><a href="/algemene-voorwaarden/index.html" class="elementor-item">Algemene voorwaarden</a></li></ul></nav><nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true"><ul id="menu-2-4ab466fe" class="elementor-nav-menu sm-vertical"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="/contact/index.html" class="elementor-item" tabindex="-1">Contact</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="/faq/index.html" class="elementor-item" tabindex="-1">Veelgestelde vragen</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-2006"><a rel="privacy-policy" href="/privacy-verklaring/index.html" class="elementor-item" tabindex="-1">Privacy verklaring</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2029"><a href="/disclaimer/index.html" class="elementor-item" tabindex="-1">Disclaimer</a></li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2278"><a href="/algemene-voorwaarden/index.html" class="elementor-item" tabindex="-1">Algemene voorwaarden</a></li></ul></nav></div></div></div></div></div></div> <noscript><style>.lazyload{display:none}</style></noscript><script data-noptimize="1">window.lazySizesConfig=window.lazySizesConfig||{};window.lazySizesConfig.loadMode=1;</script><script async="" data-noptimize="1" src="/wp-content/plugins/autoptimize/classes/external/js/lazysizes.min.js"></script> <script id="elementor-frontend-js-before">var elementorFrontendConfig={"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Delen op Facebook","shareOnTwitter":"Delen op Twitter","pinIt":"Pin dit","download":"Downloaden","downloadImage":"Download afbeelding","fullscreen":"Volledig scherm","zoom":"Zoom","share":"Delen","playVideo":"Video afspelen","previous":"Vorige","next":"Volgende","close":"Sluiten","a11yCarouselPrevSlideMessage":"Vorige slide","a11yCarouselNextSlideMessage":"Volgende slide","a11yCarouselFirstSlideMessage":"Ga naar de eerste slide","a11yCarouselLastSlideMessage":"Ga naar de laatste slide","a11yCarouselPaginationBulletMessage":"Ga naar de slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobiel portretmodus","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobiel landschapsmodus","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet portretmodus","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet landschapsmodus","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Breedbeeld","value":2400,"default_value":2400,"direction":"min","is_enabled":false}},"hasCustomBreakpoints":false},"version":"4.1.3","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"hello-theme-header-footer":true,"landing-pages":true,"nested-elements":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"e_opt_in_v4_page":true,"e_components":true,"e_interactions":true,"e_widget_creation":true,"import-export-customization":true,"e_pro_atomic_form":true,"e_pro_variables":true,"e_pro_interactions":true},"urls":{"assets":"https:\/\/www.typemission.be\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/www.typemission.be\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/www.typemission.be\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"a9edcdbb2c","atomicFormsSendForm":"402bbcb402"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description","hello_header_logo_type":"logo","hello_header_menu_layout":"horizontal","hello_footer_logo_type":"logo"},"post":{"id":51,"title":"Proefles%20-%20TypeMission","excerpt":"","featuredImage":false}};</script> <script id="elementor-recaptcha_v3-api-js" src="https://www.google.com/recaptcha/api.js?render=explicit&amp;ver=4.1.1"></script> <script id="wp-hooks-js" src="/wp-includes/js/dist/hooks.min.js"></script> <script id="wp-i18n-js" src="/wp-includes/js/dist/i18n.min.js"></script> <script id="wp-i18n-js-after">wp.i18n.setLocaleData({'text direction\u0004ltr':['ltr']});</script> <script id="elementor-pro-frontend-js-before">var ElementorProFrontendConfig={"ajaxurl":"https:\/\/www.typemission.be\/wp-admin\/admin-ajax.php","nonce":"53bf82eaa1","urls":{"assets":"https:\/\/www.typemission.be\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/www.typemission.be\/wp-json\/"},"settings":{"lazy_load_background_images":false},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},"facebook_sdk":{"lang":"nl_BE","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/www.typemission.be\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};</script> <script>window.chatwootSettings={'locale':'nl','hideMessageBubble':false,'launcherTitle':'Bekijk de veelgestelde vragen'};(function(d,t){var BASE_URL='https://helpcenter.typemission.com';var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=BASE_URL+'/packs/js/sdk.js';g.async=true;s.parentNode.insertBefore(g,s);g.onload=function(){window.chatwootSDK.run({websiteToken:'dXEKQL4nHuSCCKZ15gztrMxR',baseUrl:BASE_URL})}})(document,'script');</script> <script defer="" src="/wp-content/cache/autoptimize/js/autoptimize_4983e105a4f096803609e61e8ba17091.js"></script>
 
@@ -837,6 +1105,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 <script id="proefles-copy-script">
+function triggerQuickShare() {
+  const shareData = {
+    title: 'TypeMission Proefles',
+    text: 'Hoi! Speel hier de gratis TypeMission proefles op de computer: https://www.typemission.be/proefles/',
+    url: 'https://www.typemission.be/proefles/'
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData).catch(function(err) {
+      if (err.name !== 'AbortError') {
+        window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareData.text), '_blank');
+      }
+    });
+  } else {
+    window.open('https://api.whatsapp.com/send?text=' + encodeURIComponent(shareData.text), '_blank');
+  }
+}
+
 function copyProeflesLink(btn) {
   const link = "https://www.typemission.be/proefles/";
   const textEl = btn.querySelector('.tm-copy-text');
